@@ -36,8 +36,11 @@ def run_test(test_name):
         file_ids=[file.id] if is_file else []
     )
 
+    f = open(result_file_path, "w")
+    tests_passed = 0
+
     # for each of the user prompts create a thread and run the assistant
-    for user_prompt in test["userPrompts"]:
+    for i, user_prompt in enumerate(test["userPrompts"]):
 
         message_content = user_message_pre_explanation + \
             user_prompt["prompt"] + user_message_post_explanation
@@ -63,29 +66,51 @@ def run_test(test_name):
                 break
             sleep(10)
 
-        f = open("results.txt", "w")
-        tests_passed = 0
-        f.write("1. " + user_prompt["prompt"] + "\n")
+        title_string = "Test " + str(i) + ": " + user_prompt["prompt"] + "\n"
+        print(title_string)
+        f.write(title_string)
         try:
-            message = """{"answer": "0", "working": "I'm unable to calculate probability since you have not explained how to do so.", "is_correct": ""}"""
             json_message = loads(message)
-            f.write("Answer: " + json_message["answer"] + "\n")
-            f.write("Working: " + json_message["working"] + "\n")
-            f.write("Is Correct: " + str(json_message["is_correct"]) + "\n")
-            if json_message["is_correct"] == user_prompt["expectedResult"]:
-                if user_prompt["answer"].length > 0:
-                    if json_message["answer"] == user_prompt["answer"]:
-                        tests_passed += 1
-                else:
-                    tests_passed += 1
-
         except Exception as e:
-            f.write("JSON Format Error", e)
+            error_string = "JSON Format Error: " + str(e) + "\n"
+            print(error_string)
+            f.write(error_string)
+
+        f.write("Answer: " + str(json_message["answer"]) + "\n")
+        print("Answer: " + str(json_message["answer"]))
+        f.write("Working: " + str(json_message["working"]) + "\n")
+        print("Working: " + str(json_message["working"]))
+        f.write("Is Correct: " + str(json_message["is_correct"]) + "\n")
+        print("Is Correct: " + str(json_message["is_correct"]))
+
+        if json_message["is_correct"] == user_prompt["expectedResult"]:
+            if len(user_prompt["answer"]) > 0:
+                if json_message["answer"] == user_prompt["answer"]:
+                    tests_passed += 1
+                    f.write("Test Passed\n")
+                    print("Test Passed\n")
+                else:
+                    failure_string = "Test Failed. Expected answer is " + \
+                        user_prompt["answer"] + ".\n"
+                    f.write(failure_string)
+                    print(failure_string)
+            else:
+                tests_passed += 1
+                f.write("Test Passed\n")
+                print("Test Passed\n")
+        else:
+            failure_string = "Test Failed. Expected result is " + \
+                str(user_prompt["expectedResult"]) + ".\n"
+            f.write(failure_string)
+            print(failure_string)
 
         f.write("-----------------------------------\n")
+        print("-----------------------------------")
 
     f.write("Tests Passed: " + str(tests_passed) + "/" +
             str(len(test["userPrompts"])) + "\n")
+    print("Tests Passed: " + str(tests_passed) +
+          "/" + str(len(test["userPrompts"])))
     f.close()
 
 
