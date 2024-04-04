@@ -21,18 +21,22 @@ def run_test(test_name):
         )
 
     test = tests[test_name]
-    instructions = assistant_instructions_pre_question + \
-        test["question"] + assistant_instructions_post_question
-    assistant_instructions_post_question
 
-    # create the assistant based on the parameters
-    assistant = client.beta.assistants.create(
-        name=assistant_name,
-        instructions=instructions,
-        tools=assistant_tools,
-        model=assistant_model,
-        file_ids=[file.id] if is_file else []
-    )
+    if len(assistant_id) > 0:
+        instructions = assistant_instructions_pre_question + \
+            test["question"] + assistant_instructions_post_question
+        assistant_instructions_post_question
+
+        # create the assistant based on the parameters
+        assistant = client.beta.assistants.create(
+            name=assistant_name,
+            instructions=instructions,
+            tools=assistant_tools,
+            model=assistant_model,
+            file_ids=[file.id] if is_file else []
+        )
+    else:
+        assistant = client.beta.assistants.retrieve(assistant_id)
 
     f = open(result_file_path, "w")
     question_string = "Test Question: " + test["question"] + "\n"
