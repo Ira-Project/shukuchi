@@ -3,10 +3,8 @@ from env import OPENAI_KEY
 from time import sleep
 from openai import OpenAI
 
-from tests import tests
-
-# To run a different experiment change the import statement
-from experiment1.parameters import *
+from test_files.tests import tests
+from parameters import *
 
 client = OpenAI(
     api_key=OPENAI_KEY,
@@ -37,6 +35,9 @@ def run_test(test_name):
     )
 
     f = open(result_file_path, "w")
+    question_string = "Test Question: " + test["question"] + "\n"
+    f.write(question_string)
+    print(question_string)
     tests_passed = 0
 
     # for each of the user prompts create a thread and run the assistant
@@ -114,4 +115,4 @@ def run_test(test_name):
     f.close()
 
 
-run_test("probability")
+run_test(test_name)

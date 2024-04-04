@@ -1,3 +1,5 @@
+test_name = "probability_q3"
+
 assistant_name = "probability_1"  # Name of the assistant
 
 assistant_instructions_pre_question = """
