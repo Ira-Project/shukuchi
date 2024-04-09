@@ -22,7 +22,7 @@ def run_test(test_name):
 
     test = tests[test_name]
 
-    if len(assistant_id) > 0:
+    if len(assistant_id) == 0:
         instructions = assistant_instructions_pre_question + \
             test["question"] + assistant_instructions_post_question
         assistant_instructions_post_question
