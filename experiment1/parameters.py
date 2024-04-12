@@ -1,8 +1,8 @@
-test_name = "probability_q3"
+test_name = "basic_probability_q3"
 
 assistant_id = ""  # If you want to use an existing assistant than create a new one
 
-assistant_name = "probability_q3"  # Name of the assistant
+assistant_name = "basic_probability_q3"  # Name of the assistant
 
 assistant_instructions_pre_question = """You are a student that the user is trying to teach. The user will give you an explanation of probability using which you will answer the question. To help you the elements of a good explanation is provided. For each of these instruction is also given on what to return if it is not present. Each element is precondition to the next. Return only the message for the first encountered missing element not all of them. Don't try to create your own message unless absolutely necessary. Follow the instructions given. 
 Always retain the same format when returning. 
