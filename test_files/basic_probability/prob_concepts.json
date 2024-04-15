@@ -1,0 +1,146 @@
+[
+  {
+    "concept_id": 1,
+    "concept_question": "What are outcomes?",
+    "concept": "Any possible result of an experiment or a trial is an outcome.",
+    "concept_formulas": [],
+    "parent_concepts": [],
+    "similar_concepts": []
+  },
+  {
+    "concept_id": 2,
+    "concept_question": "What are total outcomes?",
+    "concept": "All possible outcomes of an experiment or a trial constitute the total outcomes.",
+    "concept_formulas": [],
+    "parent_concepts": [1],
+    "similar_concepts": [3]
+  },
+  {
+    "concept_id": 3,
+    "concept_question": "What is the sample space?",
+    "concept": "The set of all possible outcomes of an experiment or a trial is called the sample space.",
+    "concept_formulas": [],
+    "parent_concepts": [1],
+    "similar_concepts": [2]
+  },
+  {
+    "concept_id": 4,
+    "concept_question": "What are favourable outcomes?",
+    "concept": "Given an experiment or a trial, favourable outcomes are those that we want to happen.",
+    "concept_formulas": [],
+    "parent_concepts": [1],
+    "similar_concepts": [5]
+  },
+  {
+    "concept_id": 5,
+    "concept_question": "What are events?",
+    "concept": "The set of favourable outcomes of an experiment or a trial is called an event.",
+    "concept_formulas": [],
+    "parent_concepts": [1],
+    "similar_concepts": [4]
+  },
+  {
+    "concept_id": 6,
+    "concept_question": "What is probability of an event in an experiment?",
+    "concept": "The probability of an event in an experiment is defined as the number of trials in which the event happened divided by the total number of trials.",
+    "concept_formula": ["P(Event) = Number of trials in which the event happened / Total number of trials"],
+    "parent_concepts": [2, 5],
+    "similar_concepts": [7]
+  },
+  {
+    "concept_id": 7,
+    "concept_question": "What is probability of an event?",
+    "concept": "The probability of an event in defined as the number of favourable outcomes divided by the total outcomes.",
+    "concept_formula": ["P(Event) = Number of favourable outcomes / Total outcomes"],
+    "parent_concepts": [2, 4],
+    "similar_concepts": [6]
+  },
+  {
+    "concept_id": 8,
+    "concept_question": "What are equally likely outcomes?",
+    "concept": "If all outcomes of an experiment or a trial have equal probability, the outcomes are said to be equally likely.",
+    "concept_formula": [],
+    "parent_concepts": [6],
+    "similar_concepts": []
+  },
+  {
+    "concept_id": 9,
+    "concept_question": "What are independent events?",
+    "concept": "Independent events are the events that are not affected by one another. Two events are said to be independent if the occurrence of one event doesn't affect the other event.",
+    "concept_formula": [],
+    "parent_concepts": [5],
+    "similar_concepts": []
+  },
+  {
+    "concept_id": 10,
+    "concept_question": "What are dependent events?",
+    "concept": "Dependent events are the events that are affected by previous events. If the occurrence of one event affects another event, then the latter event is said to be dependent on the former one.",
+    "concept_formula": [],
+    "parent_concepts": [5],
+    "similar_concepts": []
+  },
+  {
+    "concept_id": 11,
+    "concept_question": "How to calculate the probability of independent events occurring together?",
+    "concept": "The probability of independent events occurring together is calculated by multiplying the probabilities of each of the independent events.",
+    "concept_formula": ["P(Event A and Event B) = P(Event A) * P(Event B)"],
+    "parent_concepts": [6],
+    "similar_concepts": []
+  },
+  {
+    "concept_id": 12,
+    "concept_question": "How to calculate the probability of dependent events occurring together?",
+    "concept": "The probability of two dependent events occurring together is calculated by multiplying the probability of the first event with the probability of second event after the first has occurred.",
+    "concept_formula": ["P(Event A and Event B) = P(Event A) * P(Event B after Event A has occurred)"],
+    "parent_concepts": [6],
+    "similar_concepts": []
+  },
+  {
+    "concept_id": 13,
+    "concept_question": "How to calculate the probability of an event not happening?",
+    "concept": "The probability of an event not happening is calculated by subtracting the probability of the event happening from 1.",
+    "concept_formula": ["P(Event A not happening) = 1 - P(Event A)"],
+    "parent_concepts": [6],
+    "similar_concepts": [15]
+  },
+  {
+    "concept_id": 14,
+    "concept_question": "What is the complement of an event?",
+    "concept": "The set of outcomes of an experiment or a trial in which the event does not occur is called the complement of an event.",
+    "concept_formula": [],
+    "parent_concepts": [5],
+    "similar_concepts": []
+  },
+  {
+    "concept_id": 15,
+    "concept_question": "What is the probability of the complement of an event?",
+    "concept": "The probability of the complement of an event is obtained by subtracting the probability of the event happening from 1.",
+    "concept_formula": ["P(complement of Event A) = 1 - P(Event A)"],
+    "parent_concepts": [6],
+    "similar_concepts": [13]
+  },
+  {
+    "concept_id": 16,
+    "concept_question": "What is an impossible event?",
+    "concept": "An impossible event is an event whose probability is 0.",
+    "concept_formula": [],
+    "parent_concepts": [5],
+    "similar_concepts": []
+  },
+  {
+    "concept_id": 17,
+    "concept_question": "What is a certain event or a sure event?",
+    "concept": "A certain event or a event event is an event whose probability is 1.",
+    "concept_formula": [],
+    "parent_concepts": [5],
+    "similar_concepts": []
+  },
+  {
+    "concept_id": 18,
+    "concept_question": "What is the probability of the total outcomes?",
+    "concept": "The probability of all possible outcomes of an experiment or trial is equal to 1.",
+    "concept_formula": ["P(Total outcomes) = 1"],
+    "parent_concepts": [2, 6],
+    "similar_concepts": []
+  }
+]

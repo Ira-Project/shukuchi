@@ -1,0 +1,13 @@
+Test Question: Ashley's class is doing experiments with probability. They have a box with 3 green balls, 2 blue balls, and 5 red balls. Ashley takes a ball from the box, keeps the ball, and passes the box to Manuel. What is the probability that Ashley gets a blue ball and Manuel gets a green ball?
+Test 0: asdfasdfadsf
+Answer: None
+Working: I'm sorry, but the explanation provided by the student didn't have any steps to execute so I don't know how to proceed further.
+Is Correct: False
+Test Passed
+-----------------------------------
+Test 1: Probability is number of favourable outcomes divided total outcomes.
+Answer: None
+Working: According to the steps provided by the student, I first identified the probability of Ashley drawing a blue ball from the initial set of balls. The total number of balls is 10 (3 green, 2 blue, and 5 red). Ashley's favorable outcome is to draw a blue ball, and there are 2 of those. So, the probability of Ashley drawing a blue ball is the number of blue balls (2) divided by the total number of balls (10). But without further steps, I don't know how to proceed further.
+Is Correct: False
+Test Passed
+-----------------------------------
