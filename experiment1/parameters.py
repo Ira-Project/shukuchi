@@ -1,4 +1,4 @@
-test_name = "probability_q3"
+test_name = "basic_probability_q3"
 
 assistant_id = "asst_DYpkLsJCZDv9Q5Oq3HZBFTww"  # If you want to use an existing assistant than create a new one
 
@@ -53,7 +53,7 @@ For Manual to get a green ball the probability is 3/9 or 1/3.
 You mentioned that the probability of two independent events is the product of their probabilities so the probability of getting a number is 1/5 x 1/3 = 1/15.
 """
 assistant_tools = [{"type": "code_interpreter"}]
-assistant_model = "gpt-4"
+assistant_model = "gpt-4-1106-preview"
 
 user_message_pre_explanation = "Run the evaluate_steps function for the following explanation: "
 user_message_post_explanation = ""

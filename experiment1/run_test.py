@@ -77,20 +77,33 @@ def run_test(test_name):
 
         num_steps = 0
         steps = ""
+        formulas = ""
         message = None
+        run_completed = False
         # Polling the run until it is completed
         while (True):
             run = client.beta.threads.runs.retrieve(thread_id=thread.id, run_id=run.id)
             if run.status == 'completed':
-                message = get_message(steps_evaluated=num_steps - 1)
+                run_completed = True
                 break
             elif run.status == 'requires_action':
                 function_name = run.required_action.submit_tool_outputs.tool_calls[0].function.name
                 if function_name == "evaluate_steps":
                     message_json = loads(run.required_action.submit_tool_outputs.tool_calls[0].function.arguments)
-                    if message_json['Stated explicitly'] == "Yes":
+                    # print(run.required_action.submit_tool_outputs.tool_calls)
+                    # print(message_json)
+                    if message_json['Step stated'] == "Yes":
                         num_steps += 1
                         steps = steps + str(message_json['Step number']) + ") " + message_json['Step'] + "\n"
+                        if message_json['Formula stated'] == "No":
+                            formulas = formulas + str(message_json['Step number']) + ") " + "\n"
+                        else:
+                            if message_json['Formula stated correctly'] == "Yes":
+                                formulas = formulas + str(message_json['Step number']) + ") " + message_json[
+                                    'Formula'] + "\n"
+                            else:
+                                formulas = formulas + str(message_json['Step number']) + ") " + message_json[
+                                    'Incorrect formula'] + "\n"
                         run = client.beta.threads.runs.submit_tool_outputs(
                             thread_id=thread.id,
                             run_id=run.id,
@@ -101,16 +114,17 @@ def run_test(test_name):
                                 },
                             ])
                     else:
-                        if num_steps == 0:
-                            message = get_message(steps_evaluated=num_steps)
-                            break
-                        else:
-                            break
+                        break
                 else:
                     break
             sleep(5)
 
-        client.beta.threads.runs.cancel(run_id=run.id, thread_id=thread.id)
+        if run_completed:
+            message = get_message(steps_evaluated=num_steps)
+        else:
+            client.beta.threads.runs.cancel(run_id=run.id, thread_id=thread.id)
+        print(steps)
+        print(formulas)
         if not message:
             final_message_content = solver_message + "\n" + steps
             client.beta.threads.messages.create(
@@ -125,6 +139,7 @@ def run_test(test_name):
                 if run.status == 'requires_action':
                     message = run.required_action.submit_tool_outputs.tool_calls[0].function.arguments
                     break
+                sleep(5)
 
         title_string = "Test " + str(i) + ": " + user_prompt["prompt"] + "\n"
         print(title_string)

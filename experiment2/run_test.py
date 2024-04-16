@@ -10,48 +10,27 @@ client = OpenAI(
     api_key=OPENAI_KEY,
 )
 
-def get_message(steps_evaluated):
-    if steps_evaluated == -1:
-        message = {
-            "answer": None,
-            "working": "I could not understand anything from the explanation provided by you. It doesn't seem to contain any meaningful information required to solve the question.",
-            "is_correct": False
-            }
-        message = dumps(message)
-    elif steps_evaluated == 0:
-        message = {
-            "answer": None,
-            "working": "I do not know how to begin solving the question based on your explanation. Please provide some more details.",
-            "is_correct": False
-            }
-        message = dumps(message)
-    return  message
+def get_message(working, answer=None):
+    is_correct = False
+    if answer == "None":
+        answer = None
+    else:
+        if answer == 1/15:
+            is_correct = True
+    message = {
+        "answer": answer,
+        "working": working,
+        "is_correct": is_correct
+        }
+    message = dumps(message)
+    return message
 
 def run_test(test_name):
 
-    # if file is used upload a file to OpenAI
-    if is_file:
-        file = client.files.create(
-            file=open(file_name, "rb"),
-            purpose='assistants'
-        )
-
     test = tests[test_name]
-    if len(assistant_id) == 0:
-        instructions = assistant_instructions_pre_question + \
-            test["question"] + assistant_instructions_post_question
-        assistant_instructions_post_question
 
-        # create the assistant based on the parameters
-        assistant = client.beta.assistants.create(
-            name=assistant_name,
-            instructions=instructions,
-            tools=assistant_tools,
-            model=assistant_model,
-            file_ids=[file.id] if is_file else []
-        )
-    else:
-        assistant = client.beta.assistants.retrieve(assistant_id)
+    assistant = client.beta.assistants.retrieve(assistant_id)
+    calculator_assistant = client.beta.assistants.retrieve(calculator_assistant_id)
 
     f = open(result_file_path, "w")
     question_string = "Test Question: " + test["question"] + "\n"
@@ -75,71 +54,48 @@ def run_test(test_name):
             assistant_id=assistant.id
         )
 
-        num_steps = 0
-        steps = ""
-        formulas = ""
         message = None
-        run_completed = False
         # Polling the run until it is completed
         while (True):
-            run = client.beta.threads.runs.retrieve(thread_id=thread.id, run_id=run.id)
             if run.status == 'completed':
-                run_completed = True
+                messages = client.beta.threads.messages.list(thread_id=thread.id)
+                message = get_message(messages.data[0].content[0].text.value)
                 break
             elif run.status == 'requires_action':
                 function_name = run.required_action.submit_tool_outputs.tool_calls[0].function.name
-                if function_name == "evaluate_steps":
-                    message_json = loads(run.required_action.submit_tool_outputs.tool_calls[0].function.arguments)
-                    # print(run.required_action.submit_tool_outputs.tool_calls)
-                    # print(message_json)
-                    if message_json['Step stated'] == "Yes":
-                        num_steps += 1
-                        steps = steps + str(message_json['Step number']) + ") " + message_json['Step'] + "\n"
-                        if message_json['Formula stated'] == "No":
-                            formulas = formulas + str(message_json['Step number']) + ") " + "\n"
-                        else:
-                            if message_json['Formula stated correctly'] == "Yes":
-                                formulas = formulas + str(message_json['Step number']) + ") " + message_json[
-                                    'Formula'] + "\n"
+                if function_name == "compute_answer":
+                    response = loads(run.required_action.submit_tool_outputs.tool_calls[0].function.arguments)
+                    working = response["response"]
+
+                    # Uses another assistant to perform calculations
+                    calculator_message_content = calculator_pre_message + working
+                    calculator_thread = client.beta.threads.create(messages=[{
+                        "role": "user",
+                        "content": calculator_message_content,
+                    }])
+                    calculator_run = client.beta.threads.runs.create_and_poll(
+                        thread_id=calculator_thread.id,
+                        assistant_id=calculator_assistant.id
+                    )
+                    while (True):
+                        if calculator_run.status == 'requires_action':
+                            calculator_function_name = calculator_run.required_action.submit_tool_outputs.tool_calls[0].function.name
+                            if calculator_function_name == "get_answer":
+                                calculator_response = loads(calculator_run.required_action.submit_tool_outputs.tool_calls[0].function.arguments)
+                                answer = calculator_response["answer"]
+                                break
                             else:
-                                formulas = formulas + str(message_json['Step number']) + ") " + message_json[
-                                    'Incorrect formula'] + "\n"
-                        run = client.beta.threads.runs.submit_tool_outputs(
-                            thread_id=thread.id,
-                            run_id=run.id,
-                            tool_outputs=[
-                                {
-                                    "tool_call_id": run.required_action.submit_tool_outputs.tool_calls[0].id,
-                                    "output": """success" : "true""",
-                                },
-                            ])
-                    else:
-                        break
+                                break
+                        sleep(2)
+                    break
                 else:
                     break
-            sleep(5)
+            sleep(2)
 
-        if run_completed:
-            message = get_message(steps_evaluated=num_steps)
-        else:
-            client.beta.threads.runs.cancel(run_id=run.id, thread_id=thread.id)
-        print(steps)
-        print(formulas)
+        # if not run_completed:
+        #     client.beta.threads.runs.cancel(run_id=run.id, thread_id=thread.id)
         if not message:
-            final_message_content = solver_message + "\n" + steps
-            client.beta.threads.messages.create(
-                thread_id=thread.id,
-                role="user",
-                content=final_message_content)
-            run = client.beta.threads.runs.create_and_poll(
-                thread_id=thread.id,
-                assistant_id=assistant.id
-            )
-            while (True):
-                if run.status == 'requires_action':
-                    message = run.required_action.submit_tool_outputs.tool_calls[0].function.arguments
-                    break
-                sleep(5)
+            message = get_message(working, answer)
 
         title_string = "Test " + str(i) + ": " + user_prompt["prompt"] + "\n"
         print(title_string)

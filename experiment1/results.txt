@@ -1,13 +1,60 @@
 Test Question: Ashley's class is doing experiments with probability. They have a box with 3 green balls, 2 blue balls, and 5 red balls. Ashley takes a ball from the box, keeps the ball, and passes the box to Manuel. What is the probability that Ashley gets a blue ball and Manuel gets a green ball?
 Test 0: asdfasdfadsf
 Answer: None
-Working: I do not know how to begin solving the question based on your explanation. Please provide some more details.
+Working: I cannot understand the explanation.
 Is Correct: False
 Test Passed
 -----------------------------------
 Test 1: Probability is number of favourable outcomes divided total outcomes.
 Answer: None
-Working: I do not know how to begin solving the question based on your explanation. Please provide some more details.
+Working: I don't yet know how to solve the probability problem you described because I don't know the formula or method needed to calculate it. But based on what you told me, probability seems to be the number of favorable outcomes over the total outcomes.
 Is Correct: False
 Test Passed
 -----------------------------------
+Test 2: Probability is the sum of favourable outcomes divided by total outcomes. Favourable outcomes are what you want to happen and total outcomes are all the things that can happen
+Answer: None
+Working: To solve for the probability that Ashley gets a blue ball and Manuel gets a green ball, I need to calculate the favourable outcomes for this specific event divided by the total outcomes. The favourable outcome is that Ashley gets one of the 2 blue balls and then Manuel gets one of the 3 green balls. The total outcomes would be all the possible different balls Ashley could get times all the different balls Manuel could get after Ashley. I'll calculate it now.
+Is Correct: False
+Test Passed
+-----------------------------------
+Test 3: Probability is the favourable outcomes. Favourable outcomes are the events we want to happen and total outcomes are all the possible things that can happen. For multiple events the probability is computed as the product of each event. 
+Answer: 2.0
+Working: According to your explanation, to calculate the probability of two events happening, I need to calculate the probability of each event separately and then multiply them together. For Ashley to get a blue ball, since there are 2 blue balls and a total of 10 balls in the box, the probability is 2 out of 10 or 2/10. After Ashley takes a ball, there will be 9 balls left. For Manuel to get a green ball, given that there are 3 green balls left, the probability is 3 out of 9 or 3/9. Now, I multiply these probabilities together: (2/10) * (3/9).
+Is Correct: False
+Test Failed. Expected answer is 6.
+-----------------------------------
+Test 4: Probability is defined as the ratio between number of favourable outcomes and total outcomes. Favourable outcomes are the events we want to happen and total outcomes are all the possible things that can happen. For multiple events the probability is computed as the product of each event.
+Answer: None
+Working: I will use your definition of probability to solve the problem with Ashley and Manuel. First, I need to figure out the favourable outcomes for Ashley to get a blue ball. There are 2 blue balls, so that's 2 favourable outcomes for Ashley. Then, I need to count the total outcomes for Ashley. There are 3 green, 2 blue, and 5 red balls, making a total of 10 balls. So the probability of Ashley getting a blue ball is 2 (favourable) divided by 10 (total).
+
+Next, for Manuel to get a green ball after Ashley has taken one ball, the situation is different depending on whether Ashley took a green ball or not. But since I'm interested in the case where Ashley takes a blue ball, nothing changes for the greens. So, there are still 3 green balls for Manuel, but now only 9 balls in total since Ashley kept one. This makes the probability of Manuel getting a green ball 3 (favourable) divided by 9 (total).
+
+Finally, to find the probability of both events happening, I'll multiply the probability of Ashley getting a blue ball with the probability of Manuel getting a green ball. So I'll calculate (2/10) * (3/9).
+Is Correct: False
+Test Failed. Expected answer is 3/50.
+-----------------------------------
+Test 5: Probability is defined as the product between number of favourable outcomes and total outcomes. Favourable outcomes are the events we want to happen and total outcomes are all the possible things that can happen. For multiple events the probability is computed as the product of each event. Keep in mind that in some cases items may be removed and the total outcomes can change.
+Answer: 420
+Working: Following the explanation, I will consider the 'number of favourable outcomes' for Ashley getting a blue ball first. There are 2 blue balls and the 'total outcomes' for her to pick a ball from are 3 green + 2 blue + 5 red = 10. The probability for Ashley to get a blue ball is therefore the product of the number of blue balls (2) and the total number of balls (10).
+
+Next, assuming Ashley has taken a blue ball and kept it, there is now one less ball in the box. So, the 'total outcomes' for Manuel to pick a ball are now 3 green + 1 blue (since Ashley took one) + 5 red = 9. The 'number of favourable outcomes' for Manuel to get a green ball is the number of green balls, which is 3. The probability for Manuel to get a green ball is therefore the product of the number of green balls (3) and the total number of remaining balls (9).
+
+To find the probability of both events happening - that is Ashley getting a blue ball and Manuel getting a green ball - I will multiply their individual probabilities as explained. So, the computed probability is the product of (2 multiplied by 10) for Ashley and (3 multiplied by 9) for Manuel.
+Is Correct: False
+Test Failed. Expected answer is 540.
+-----------------------------------
+Test 6: Probability is defined as the ratio between number of favourable outcomes and total outcomes. Favourable outcomes are the events we want to happen and total outcomes are all the possible things that can happen. For multiple events the probability is computed as the product of each event. Keep in mind that in some cases items may be removed and the total outcomes can change.
+Answer: 0.06666666666666667
+Working: First, we need to understand that Ashley and Manuel picking the balls are two separate events. The box has 3 green balls, 2 blue balls, and 5 red balls, totalling 10 balls initially.
+
+For Ashley to get a blue ball, there are 2 blue balls out of 10 total balls, so the probability for Ashley is 2/10, which simplifies to 1/5.
+
+After Ashley takes a ball (we're considering the case where she takes a blue one), there are 9 balls left: 3 green, 1 blue, and 5 red. Now, for Manuel to get a green ball, there are 3 green balls out of these 9 balls. So the probability for Manuel to get a green ball is 3/9, which simplifies to 1/3.
+
+As per the rule, to find the combined probability of both independent events, we multiply their probabilities together: (1/5) * (1/3).
+
+Now I will calculate this final probability.
+Is Correct: False
+Test Failed. Expected result is True.
+-----------------------------------
+Tests Passed: 3/7
