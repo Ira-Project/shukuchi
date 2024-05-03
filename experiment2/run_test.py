@@ -10,6 +10,7 @@ client = OpenAI(
     api_key=OPENAI_KEY,
 )
 
+
 def get_message(working, answer=None):
     is_correct = False
     if answer == "None":
@@ -21,16 +22,18 @@ def get_message(working, answer=None):
         "answer": answer,
         "working": working,
         "is_correct": is_correct
-        }
+    }
     message = dumps(message)
     return message
+
 
 def run_test(test_name):
 
     test = tests[test_name]
 
     assistant = client.beta.assistants.retrieve(assistant_id)
-    calculator_assistant = client.beta.assistants.retrieve(calculator_assistant_id)
+    calculator_assistant = client.beta.assistants.retrieve(
+        calculator_assistant_id)
 
     f = open(result_file_path, "w")
     question_string = "Test Question: " + test["question"] + "\n"
@@ -58,7 +61,8 @@ def run_test(test_name):
         # Polling the run until it is completed
         while (True):
             if run.status == 'completed':
-                messages = client.beta.threads.messages.list(thread_id=thread.id)
+                messages = client.beta.threads.messages.list(
+                    thread_id=thread.id)
                 message = get_message(messages.data[0].content[0].text.value)
                 break
             elif run.status == 'requires_action':
@@ -66,7 +70,6 @@ def run_test(test_name):
                 if function_name == "compute_response":
                     response = loads(run.required_action.submit_tool_outputs.tool_calls[0].function.arguments)
                     working = response["response"]
-
                     # Uses another assistant to perform calculations
                     calculator_message_content = calculator_pre_message + working
                     calculator_thread = client.beta.threads.create(messages=[{
@@ -79,9 +82,11 @@ def run_test(test_name):
                     )
                     while (True):
                         if calculator_run.status == 'requires_action':
-                            calculator_function_name = calculator_run.required_action.submit_tool_outputs.tool_calls[0].function.name
+                            calculator_function_name = calculator_run.required_action.submit_tool_outputs.tool_calls[
+                                0].function.name
                             if calculator_function_name == "get_answer":
-                                calculator_response = loads(calculator_run.required_action.submit_tool_outputs.tool_calls[0].function.arguments)
+                                calculator_response = loads(
+                                    calculator_run.required_action.submit_tool_outputs.tool_calls[0].function.arguments)
                                 answer = calculator_response["answer"]
                                 break
                             else:
