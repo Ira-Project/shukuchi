@@ -58,9 +58,9 @@
   {
     "concept_id": 8,
     "concept_question": "What are equally likely outcomes?",
-    "concept": "If all outcomes of an experiment or a trial have equal probability, the outcomes are said to be equally likely.",
+    "concept": "If each outcome of an experiment or a trial has the same chance of occurring, the outcomes are said to be equally likely.",
     "concept_formula": "",
-    "parent_concepts": [6],
+    "parent_concepts": [2],
     "similar_concepts": []
   },
   {
@@ -130,15 +130,15 @@
   {
     "concept_id": 17,
     "concept_question": "What is a certain event or a sure event?",
-    "concept": "A certain event or a event event is an event whose probability is 1.",
+    "concept": "A certain event or a sure event is an event whose probability is 1.",
     "concept_formula": "",
     "parent_concepts": [5],
     "similar_concepts": []
   },
   {
     "concept_id": 18,
-    "concept_question": "What is the probability of the total outcomes?",
-    "concept": "The probability of all possible outcomes of an experiment or trial is equal to 1.",
+    "concept_question": "What is the probability of total outcomes happening?",
+    "concept": "The probability of the total outcomes of an experiment or trial is equal to 1.",
     "concept_formula": "P(Total outcomes) = 1",
     "parent_concepts": [2, 6],
     "similar_concepts": []

@@ -1,0 +1,4 @@
+kg_assistant_name = "KG Creator"
+kg_assistant_model = "gpt-4-turbo"
+kg_instructions = "You have to help the user to solve a question on probability. This question is listed in the 'Question' field below.  The user gives you a concept of probability and you have to respond if that particular concept is directly needed to solve the question. Your response should be strictly in the format of 'Yes' or 'No'. If the concept given by the user is absolutely and explicitly required to solve the question, respond 'Yes'. Otherwise, respond 'No'.\n\nQuestion:\n"
+# kg_instructions = "You have to help the user to solve a question on probability. This question is listed in the 'Question' field below.  To solve the question, the user needs to know some concepts about probability.  Respond if the concept given by the user is needed to solve that question. Your response should be strictly in the format of 'Yes' or 'No'.\nQuestion:\n"

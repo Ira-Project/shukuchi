@@ -63,7 +63,7 @@ def run_test(test_name):
                 break
             elif run.status == 'requires_action':
                 function_name = run.required_action.submit_tool_outputs.tool_calls[0].function.name
-                if function_name == "compute_answer":
+                if function_name == "compute_response":
                     response = loads(run.required_action.submit_tool_outputs.tool_calls[0].function.arguments)
                     working = response["response"]
 
