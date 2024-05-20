@@ -15,7 +15,8 @@
         "Each possible result from performing a specific activity or experiment can be called an outcome.",
         "An outcome represents any potential occurrence that can come out of a situation or experimental setup."
       ],
-      "concept_uuid": "4gedBTP2F4vZc2pDxmhwt"
+      "concept_uuid": "4gedBTP2F4vZc2pDxmhwt",
+      "show_visualization": "Yes"
     },
     {
       "concept_id": 2,
@@ -36,7 +37,8 @@
         "When considering total outcomes, we count each unique possibility that might come out of a scenario.",
         "Total outcomes include all individual end-results achievable in any given situation."
       ],
-      "concept_uuid": "zYob7nrdkVWetRbempPny"
+      "concept_uuid": "zYob7nrdkVWetRbempPny",
+      "show_visualization": "Yes"
     },
     {
       "concept_id": 3,
@@ -57,7 +59,8 @@
         "Sample space refers to the complete set of possible discrete outcomes.",
         "This term describes all the different results that might happen in an experiment."
       ],
-      "concept_uuid": "jzNUTJZhtDFpqcp8bLr9B"
+      "concept_uuid": "jzNUTJZhtDFpqcp8bLr9B",
+      "show_visualization": "No"
     },
     {
       "concept_id": 4,
@@ -78,7 +81,8 @@
         "In any given experiment, favourable outcomes are those which satisfy the objectives set before it was conducted.",
         "They represent successful results in accordance to what was anticipated or planned."
       ],
-      "concept_uuid": "qhtxjfpScy47SiCW2DL3E"
+      "concept_uuid": "qhtxjfpScy47SiCW2DL3E",
+      "show_visualization": "Yes"
     },
     {
       "concept_id": 5,
@@ -99,7 +103,8 @@
         "An event represents all the potential favorable results one can observe from a particular experiment.",
         "Events include those specific scenarios or outcomes you might define as successes in an activity involving chance."
       ],
-      "concept_uuid": "rXV9DDiaa3LSE9uv4s9GL"
+      "concept_uuid": "rXV9DDiaa3LSE9uv4s9GL",
+      "show_visualization": "No"
     },
     {
       "concept_id": 6,
@@ -120,7 +125,8 @@
         "To determine probability, count how many times the event you are measuring occurs and then divide it by the total number of trials or attempts.",
         "Find the probability by taking the number of times an event occurs and dividing it by the total number of trials."
       ],
-      "concept_uuid": "U83nq3eZMpEZsdECAurfr"
+      "concept_uuid": "U83nq3eZMpEZsdECAurfr",
+      "show_visualization": "No"
     },
     {
       "concept_id": 7,
@@ -143,7 +149,8 @@
         "This describes how often you can expect an event to happen compared to all possible scenarios.",
         "Probability is essentially a numerical description of how probable an event is based on favorable cases over the total number of cases."
       ],
-      "concept_uuid": "tqmntn8PfkTkHXEGVoiF6"
+      "concept_uuid": "tqmntn8PfkTkHXEGVoiF6",
+      "show_visualization": "Yes"
     },
     {
       "concept_id": 8,
@@ -162,7 +169,8 @@
         "When no single outcome has a greater chance of occurring than any other, these are termed equally likely outcomes.",
         "Equally likely implies that every possible result of an action has an identical likelihood of taking place."
       ],
-      "concept_uuid": "uymLGtFJXPFvCdpt86eHA"
+      "concept_uuid": "uymLGtFJXPFvCdpt86eHA",
+      "show_visualization": "No"
     },
     {
       "concept_id": 9,
@@ -181,7 +189,8 @@
         "Events are independent when the occurrence of one does not alter the likelihood of another event happening.",
         "If two events are independent, each event happens without being impacted by whether or not the other has occurred."
       ],
-      "concept_uuid": "WsexGtU3Jjf5hASgAPK6m"
+      "concept_uuid": "WsexGtU3Jjf5hASgAPK6m",
+      "show_visualization": "Yes"
     },
     {
       "concept_id": 10,
@@ -200,7 +209,8 @@
         "If knowing something about one event gives information about another, these events are dependent.",
         "Dependent events have linked outcomes, where what happens in one event sways the likelihood of the other."
       ],
-      "concept_uuid": "WJ9jDb9cBV8hBvkceDP9T"
+      "concept_uuid": "WJ9jDb9cBV8hBvkceDP9T",
+      "show_visualization": "Yes"
     },
     {
       "concept_id": 11,
@@ -221,7 +231,8 @@
         "You find it by multiplying the likelihood of each individual event.",
         "To get this, you multiply together the probabilities of all events involved."
       ],
-      "concept_uuid": "NfA7bA8WmwbX2NsTgbsHi"
+      "concept_uuid": "NfA7bA8WmwbX2NsTgbsHi",
+      "show_visualization": "Yes"
     },
     {
       "concept_id": 12,
@@ -242,7 +253,8 @@
         "To determine this, take the probability of your initial event and then multiply it by your subsequent event's conditional probability.",
         "Calculate it by using: Probability of Event 1 multiplied by Probability of Event 2 given that Event 1 has occurred."
       ],
-      "concept_uuid": "xiwG6kpSFA3mhXtgGJNLs"
+      "concept_uuid": "xiwG6kpSFA3mhXtgGJNLs",
+      "show_visualization": "Yes"
     },
     {
       "concept_id": 13,
@@ -263,7 +275,8 @@
         "You get the probability of an event not happening by taking one and subtracting the probability that it does happen.",
         "Simply subtract the likelihood of an event from one to determine how likely it is to not occur."
       ],
-      "concept_uuid": "pQtiLoqfK64T6MuGCSNpq"
+      "concept_uuid": "pQtiLoqfK64T6MuGCSNpq",
+      "show_visualization": "Yes"
     },
     {
       "concept_id": 14,
@@ -282,7 +295,8 @@
         "The complement comprises all outcomes that do not fulfill the condition of the specific event.",
         "This is the group of outcomes where the specified event fails to occur."
       ],
-      "concept_uuid": "Cbm99YRqsbx3EyN6tLNNm"
+      "concept_uuid": "Cbm99YRqsbx3EyN6tLNNm",
+      "show_visualization": "No"
     },
     {
       "concept_id": 15,
@@ -304,7 +318,8 @@
         "The complement's probability is calculated by taking 1 and subtracting the event's probability from it.",
         "You get a complement's probability by deducting the actual event's chance from one."
       ],
-      "concept_uuid": "gaq2ykzXYhho7EcQXWEL3"
+      "concept_uuid": "gaq2ykzXYhho7EcQXWEL3",
+      "show_visualization": "No"
     },
     {
       "concept_id": 16,
@@ -323,7 +338,8 @@
         "An impossible event has zero likelihood of happening.",
         "If an event is impossible, it means it will never occur."
       ],
-      "concept_uuid": "w8bkZXxqPzsyojCkUZZmc"
+      "concept_uuid": "w8bkZXxqPzsyojCkUZZmc",
+      "show_visualization": "Yes"
     },
     {
       "concept_id": 17,
@@ -342,7 +358,8 @@
         "An event with a probability of 1 is considered a certain or sure event.",
         "If the likelihood of an occurrence is 1, then it's termed as a certain or sure event."
       ],
-      "concept_uuid": "gCPm2dWvELVcB4cNA3cix"
+      "concept_uuid": "gCPm2dWvELVcB4cNA3cix",
+      "show_visualization": "Yes"
     },
     {
       "concept_id": 18,
@@ -362,7 +379,8 @@
         "The combined probability of every potential outcome in a trial will total to 100%.",
         "Every complete set of outcomes from an event adds up to one."
       ],
-      "concept_uuid": "x5jV2BHk8UcP5jqvwiAtz"
+      "concept_uuid": "x5jV2BHk8UcP5jqvwiAtz",
+      "show_visualization": "Yes"
     }
   ],
   "root_ids": ["4gedBTP2F4vZc2pDxmhwt"]
