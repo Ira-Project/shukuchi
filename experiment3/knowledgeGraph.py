@@ -82,7 +82,7 @@ class Graph():
     def populateGraphFromJSON(self, filename):
         f = open(filename)
         json_obj = json.load(f)
-        for concept in json_obj:
+        for concept in json_obj["concepts"]:
             if "concept_rephrases" in concept:
                 self.addNode(concept["concept_id"], concept["concept_question"], concept["concept"],
                          set(concept["similar_concepts"]), concept["concept_formula"], concept["calculation_required"],

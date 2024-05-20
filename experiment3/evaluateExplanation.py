@@ -1,6 +1,6 @@
 import json
 import random
-
+import shortuuid
 from env import OPENAI_KEY
 import pickle
 from knowledgeGraph import *
@@ -21,7 +21,7 @@ client = OpenAI(
 def generate_rephrased_concepts(json_file):
     f = open(json_file)
     json_obj = json.load(f)
-    for concept in json_obj:
+    for concept in json_obj["concepts"]:
         concept_sentence = concept["concept"]
         response = client.chat.completions.create(
             model=concept_rephrase_model,
@@ -43,6 +43,26 @@ def generate_rephrased_concepts(json_file):
                 continue
             rephrase_array.append(rephrase)
         concept["concept_rephrases"] = rephrase_array
+    with open("concepts.json", "w") as j:
+        json.dump(json_obj, j)
+
+def generate_concept_uuid(json_file):
+    f = open(json_file)
+    json_obj = json.load(f)
+    uuid_dict = {}
+    for concept in json_obj["concepts"]:
+        concept_id = concept["concept_id"]
+        uuid_dict[concept_id] = shortuuid.ShortUUID().random(length=21)
+    for concept in json_obj["concepts"]:
+        concept["concept_uuid"] = uuid_dict[concept["concept_id"]]
+        new_parent_concepts = []
+        for concept_id in concept["parent_concepts"]:
+            new_parent_concepts.append(uuid_dict[concept_id])
+        new_similar_concepts = []
+        for concept_id in concept["similar_concepts"]:
+            new_similar_concepts.append(uuid_dict[concept_id])
+        concept["parent_concepts"] = new_parent_concepts
+        concept["similar_concepts"] = new_similar_concepts
     with open("concepts.json", "w") as j:
         json.dump(json_obj, j)
 
@@ -243,6 +263,8 @@ def create_and_run_concepts_apply_assistant(problem, explanation_kg, concept_nod
     return final_message
 
 # generate_rephrased_concepts("test_files/basic_probability/prob_concepts.json")
+generate_concept_uuid("test_files/basic_probability/prob_concepts.json")
+idsdi
 
 kg = Graph()
 kg.populateGraphFromJSON("test_files/basic_probability/prob_concepts.json")
