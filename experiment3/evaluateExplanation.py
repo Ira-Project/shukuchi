@@ -79,10 +79,11 @@ def retrieve_question_subgraph_json(filename, question, overall_json_file):
     question_dict["question"] = question
     with open(filename, 'rb') as f:
         question_adjacency_dict = pickle.load(f)
+    print(question_adjacency_dict)
     question_kg = Graph()
     question_kg.populateGraphFromAdjacencyDict(question_adjacency_dict, kg)
     # Remove nodes
-    # question_kg.removeNodes([8])
+    question_kg.removeNodes([8])
     new_nodes = []
     for node in list(question_kg.nodesDict.keys()):
         new_nodes.append(uuid_dict[node])
