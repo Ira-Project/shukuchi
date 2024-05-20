@@ -108,6 +108,7 @@ def retrieve_knowledge_subgraph_json(filename):
     for concept in json_obj["concepts"]:
         uuid_dict[concept["concept_id"]] = concept["concept_uuid"]
     subgraph_dict = {}
+    subgraph_dict["root_ids"] = json_obj["root_ids"]
     kg = Graph()
     kg.populateGraphFromJSON(filename)
     # Remove nodes
