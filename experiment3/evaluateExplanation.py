@@ -94,9 +94,8 @@ def retrieve_question_subgraph_json(filename, question, overall_json_file):
             child_nodes.append(uuid_dict[node])
         new_adj_dict[uuid_dict[key]] = child_nodes
     question_dict["adjacency_dict"] = new_adj_dict
-    json_final = json.dumps(question_dict)
-    with open("q2_subgraph.json", "w") as j:
-        json.dump(json_final, j)
+    with open("q3_subgraph.json", "w") as j:
+        json.dump(question_dict, j)
 
 # Retrieve knowledge graph of a specific question
 def retrieve_knowledge_subgraph_json(filename):
@@ -121,9 +120,9 @@ def retrieve_knowledge_subgraph_json(filename):
             child_nodes.append(uuid_dict[node])
         new_adj_dict[uuid_dict[key]] = child_nodes
     subgraph_dict["adjacency_dict"] = new_adj_dict
-    json_final = json.dumps(subgraph_dict)
+    # json_final = json.dumps(subgraph_dict)
     with open("assignment_subgraph.json", "w") as j:
-        json.dump(json_final, j)
+        json.dump(subgraph_dict, j)
 
 
 
@@ -340,10 +339,10 @@ with open('test_files/basic_probability/concept_embeddings.pkl', 'rb') as f:
     embedded_concepts = pickle.load(f)
 
 # Retrieve knowledge graph of a specific question
-# question = q2.q2["question"]
-# retrieve_question_subgraph_json('test_files/basic_probability/q2_kg.pkl', question,
-#                                 "test_files/basic_probability/prob_concepts.json")
-retrieve_knowledge_subgraph_json("test_files/basic_probability/prob_concepts.json")
+question = q3.q3["question"]
+retrieve_question_subgraph_json('test_files/basic_probability/q3_kg.pkl', question,
+                                "test_files/basic_probability/prob_concepts.json")
+# retrieve_knowledge_subgraph_json("test_files/basic_probability/prob_concepts.json")
 jlj
 with open('test_files/basic_probability/q3_kg.pkl', 'rb') as f:
     question_adjacency_dict = pickle.load(f)
