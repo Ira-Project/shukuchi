@@ -5,6 +5,7 @@ import json
 import test_files.basic_probability.q1
 import test_files.basic_probability.q2
 import test_files.basic_probability.q3
+import test_files.basic_probability.q4
 from env import OPENAI_KEY
 from time import sleep
 from openai import OpenAI
@@ -370,7 +371,7 @@ if __name__ == '__main__':
     kg = Graph(client=client)
     kg.populateGraphFromJSON("test_files/basic_probability/prob_concepts.json")
     # create the assistant based on the parameters and find the knowledge graph for a question
-    question = test_files.basic_probability.q3.q3["question"]
+    question = test_files.basic_probability.q4.q4["question"]
     assistant = client.beta.assistants.create(
         name=kg_assistant_name,
         instructions=kg_instructions + question,
@@ -379,7 +380,7 @@ if __name__ == '__main__':
     )
     question_kg = kg.getSubKG([1], assistant.id)
     print(question_kg.adjacencyDict)
-    with open('test_files/basic_probability/q3_kg.pkl', 'wb') as f:
+    with open('test_files/basic_probability/q4_kg.pkl', 'wb') as f:
         pickle.dump(question_kg.adjacencyDict, f)
     client.beta.assistants.delete(assistant.id)
 

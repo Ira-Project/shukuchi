@@ -4,6 +4,7 @@ import shortuuid
 from env import OPENAI_KEY
 import pickle
 from knowledgeGraph import *
+import test_files.basic_probability.q4 as q4
 import test_files.basic_probability.q3 as q3
 import test_files.basic_probability.q2 as q2
 import test_files.basic_probability.q1 as q1
@@ -69,7 +70,7 @@ def generate_concept_uuid(json_file):
         json.dump(json_obj, j)
 
 # Retrieve knowledge graph of a specific question
-def retrieve_question_subgraph_json(filename, question, overall_json_file):
+def retrieve_question_subgraph_json(filename, question, overall_json_file, output_filename):
     f = open(overall_json_file)
     json_obj = json.load(f)
     uuid_dict = {}
@@ -77,6 +78,7 @@ def retrieve_question_subgraph_json(filename, question, overall_json_file):
         uuid_dict[concept["concept_id"]] = concept["concept_uuid"]
     question_dict = {}
     question_dict["question"] = question
+    question_dict["root_ids"] = json_obj["root_ids"]
     with open(filename, 'rb') as f:
         question_adjacency_dict = pickle.load(f)
     print(question_adjacency_dict)
@@ -95,7 +97,7 @@ def retrieve_question_subgraph_json(filename, question, overall_json_file):
             child_nodes.append(uuid_dict[node])
         new_adj_dict[uuid_dict[key]] = child_nodes
     question_dict["adjacency_dict"] = new_adj_dict
-    with open("q3_subgraph.json", "w") as j:
+    with open(output_filename, "w") as j:
         json.dump(question_dict, j)
 
 # Retrieve knowledge graph of a specific question
@@ -340,9 +342,9 @@ with open('test_files/basic_probability/concept_embeddings.pkl', 'rb') as f:
     embedded_concepts = pickle.load(f)
 
 # Retrieve knowledge graph of a specific question
-question = q3.q3["question"]
-retrieve_question_subgraph_json('test_files/basic_probability/q3_kg.pkl', question,
-                                "test_files/basic_probability/prob_concepts.json")
+question = q4.q4["question"]
+retrieve_question_subgraph_json('test_files/basic_probability/q4_kg.pkl', question,
+                                "test_files/basic_probability/prob_concepts.json", "q4_subgraph.json")
 # retrieve_knowledge_subgraph_json("test_files/basic_probability/prob_concepts.json")
 jlj
 with open('test_files/basic_probability/q3_kg.pkl', 'rb') as f:

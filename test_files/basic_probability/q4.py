@@ -1,5 +1,5 @@
 q4 = {
-    "question": "There is a room full of 50 people. What is the probability that at least two people have the same birthday?",
+    "question": "One card is drawn from a well-shuffled deck of 52 cards. Calculate the probability that the card is not an ace.",
     "userPrompts": [
         {
             "prompt": "asdfasdfadsf",
