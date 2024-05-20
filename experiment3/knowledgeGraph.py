@@ -82,6 +82,9 @@ class Graph():
     def populateGraphFromJSON(self, filename):
         f = open(filename)
         json_obj = json.load(f)
+        uuid_dict = {}
+        for concept in json_obj["concepts"]:
+            uuid_dict[concept["concept_uuid"]] = concept["concept_id"]
         for concept in json_obj["concepts"]:
             if "concept_rephrases" in concept:
                 self.addNode(concept["concept_id"], concept["concept_question"], concept["concept"],
@@ -90,8 +93,8 @@ class Graph():
             else:
                 self.addNode(concept["concept_id"], concept["concept_question"], concept["concept"],
                          set(concept["similar_concepts"]), concept["concept_formula"], concept["calculation_required"])
-            for parent_concept_id in concept["parent_concepts"]:
-                self.addEdge(parent_concept_id, concept["concept_id"])
+            for parent_concept_uuid in concept["parent_concepts"]:
+                self.addEdge(uuid_dict[parent_concept_uuid], concept["concept_id"])
 
 
     def addNodeFromKG(self, KG, node_id):
@@ -143,21 +146,22 @@ class Graph():
                 if node_id in self.nodeParents[id]:
                     self.nodeParents[id].remove(node_id)
 
-    def conceptNeeded(self, assistant_id, message):
+    def conceptNeeded(self, assistant_id, thread_id, message):
         print(message)
-        thread = self.openai_client.beta.threads.create(messages=[{
-            "role": "user",
-            "content": message,
-        }])
+        client.beta.threads.messages.create(
+            thread_id=thread_id,
+            role="user",
+            content=message
+        )
         run = client.beta.threads.runs.create_and_poll(
-            thread_id=thread.id,
+            thread_id=thread_id,
             assistant_id=assistant_id
         )
         # Polling the run until it is completed
         while (True):
             if run.status == 'completed':
                 messages = client.beta.threads.messages.list(
-                    thread_id=thread.id
+                    thread_id=thread_id
                 )
                 response = messages.data[0].content[0].text.value
                 break
@@ -165,19 +169,19 @@ class Graph():
         print(response)
         if response == 'Yes':
             client.beta.threads.messages.create(
-                thread_id=thread.id,
+                thread_id=thread_id,
                 role="user",
                 content="Are you sure this concept is required?"
             )
             run = client.beta.threads.runs.create_and_poll(
-                thread_id=thread.id,
+                thread_id=thread_id,
                 assistant_id=assistant_id
             )
             # Polling the run until it is completed
             while (True):
                 if run.status == 'completed':
                     messages = client.beta.threads.messages.list(
-                        thread_id=thread.id
+                        thread_id=thread_id
                     )
                     response = messages.data[0].content[0].text.value
                     break
@@ -194,11 +198,12 @@ class Graph():
         nodesVisited = set()
         stack = []
         subKG = Graph()
+        thread = client.beta.threads.create()
         for id in startConceptIDs:
             stack.append(id)
         while stack:
             nextConceptID = stack.pop(0)
-            if self.conceptNeeded(assistant_id, self.nodesDict[nextConceptID].concept):
+            if self.conceptNeeded(assistant_id, thread.id, self.nodesDict[nextConceptID].concept):
                 subKG.addNodeFromKG(self, nextConceptID)
             if nextConceptID in self.adjacencyDict:
                 for node in self.adjacencyDict[nextConceptID]:
@@ -364,61 +369,62 @@ if __name__ == '__main__':
     )
     kg = Graph(client=client)
     kg.populateGraphFromJSON("test_files/basic_probability/prob_concepts.json")
-    # # create the assistant based on the parameters and find the knowledge graph for a question
-    # question = test_files.basic_probability.q3.q3["question"]
-    # assistant = client.beta.assistants.create(
-    #     name=kg_assistant_name,
-    #     instructions=kg_instructions + question,
-    #     model=kg_assistant_model
-    # )
-    # question_kg = kg.getSubKG([1], assistant.id)
-    # print(question_kg.adjacencyDict)
-    # with open('test_files/basic_probability/q3_kg.pkl', 'wb') as f:
-    #     pickle.dump(question_kg.adjacencyDict, f)
-    # client.beta.assistants.delete(assistant.id)
-
-    # Create specific questions for each knowledge graph for a given problem
+    # create the assistant based on the parameters and find the knowledge graph for a question
     question = test_files.basic_probability.q3.q3["question"]
-    with open('test_files/basic_probability/q3_kg.pkl', 'rb') as f:
-        question_adjacency_dict = pickle.load(f)
-    question_kg = Graph()
-    question_kg.populateGraphFromAdjacencyDict(question_adjacency_dict, kg)
-    concept_questions_string, concept_id_dict = question_kg.getConceptQuestions(list(question_kg.nodesDict.keys()))
     assistant = client.beta.assistants.create(
-        name=specific_questions_assistant_name,
-        instructions=specific_questions_instructions_pre + concept_questions_string + "\n" +
-                     specific_questions_instructions_post,
-        model=specific_questions_assistant_model,
-        response_format={"type": "json_object"}
+        name=kg_assistant_name,
+        instructions=kg_instructions + question,
+        model=kg_assistant_model,
+        temperature=1
     )
-    thread = client.beta.threads.create(messages=[{
-        "role": "user",
-        "content": question,
-    }])
-    run = client.beta.threads.runs.create_and_poll(
-        thread_id=thread.id,
-        assistant_id=assistant.id
-    )
-    while (True):
-        if run.status == 'completed':
-            messages = client.beta.threads.messages.list(thread_id=thread.id)
-            response_message = messages.data[0].content[0].text.value
-            break
-        sleep(1)
-    # print(response_message)
-    try:
-        response_json = json.loads(response_message)
-    except json.decoder.JSONDecodeError:
-        response_message = response_message.split("```json")[1].split("```")[0]
-        response_json = json.loads(response_message)
-    specific_questions_dict = {}
-    # print(response_json)
-    for concept_id in concept_id_dict:
-        specific_questions_dict[concept_id] = response_json[str(concept_id_dict[concept_id])]
-    print(specific_questions_dict)
-    with open('test_files/basic_probability/q3_specific_questions.pkl', 'wb') as f:
-        pickle.dump(specific_questions_dict, f)
+    question_kg = kg.getSubKG([1], assistant.id)
+    print(question_kg.adjacencyDict)
+    with open('test_files/basic_probability/q3_kg.pkl', 'wb') as f:
+        pickle.dump(question_kg.adjacencyDict, f)
     client.beta.assistants.delete(assistant.id)
-    kk
+
+    # # Create specific questions for each knowledge graph for a given problem
+    # question = test_files.basic_probability.q3.q3["question"]
+    # with open('test_files/basic_probability/q3_kg.pkl', 'rb') as f:
+    #     question_adjacency_dict = pickle.load(f)
+    # question_kg = Graph()
+    # question_kg.populateGraphFromAdjacencyDict(question_adjacency_dict, kg)
+    # concept_questions_string, concept_id_dict = question_kg.getConceptQuestions(list(question_kg.nodesDict.keys()))
+    # assistant = client.beta.assistants.create(
+    #     name=specific_questions_assistant_name,
+    #     instructions=specific_questions_instructions_pre + concept_questions_string + "\n" +
+    #                  specific_questions_instructions_post,
+    #     model=specific_questions_assistant_model,
+    #     response_format={"type": "json_object"}
+    # )
+    # thread = client.beta.threads.create(messages=[{
+    #     "role": "user",
+    #     "content": question,
+    # }])
+    # run = client.beta.threads.runs.create_and_poll(
+    #     thread_id=thread.id,
+    #     assistant_id=assistant.id
+    # )
+    # while (True):
+    #     if run.status == 'completed':
+    #         messages = client.beta.threads.messages.list(thread_id=thread.id)
+    #         response_message = messages.data[0].content[0].text.value
+    #         break
+    #     sleep(1)
+    # # print(response_message)
+    # try:
+    #     response_json = json.loads(response_message)
+    # except json.decoder.JSONDecodeError:
+    #     response_message = response_message.split("```json")[1].split("```")[0]
+    #     response_json = json.loads(response_message)
+    # specific_questions_dict = {}
+    # # print(response_json)
+    # for concept_id in concept_id_dict:
+    #     specific_questions_dict[concept_id] = response_json[str(concept_id_dict[concept_id])]
+    # print(specific_questions_dict)
+    # with open('test_files/basic_probability/q3_specific_questions.pkl', 'wb') as f:
+    #     pickle.dump(specific_questions_dict, f)
+    # client.beta.assistants.delete(assistant.id)
+    # kk
 
 

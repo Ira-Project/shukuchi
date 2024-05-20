@@ -4,7 +4,9 @@ import shortuuid
 from env import OPENAI_KEY
 import pickle
 from knowledgeGraph import *
-import test_files.basic_probability.q3
+import test_files.basic_probability.q3 as q3
+import test_files.basic_probability.q2 as q2
+import test_files.basic_probability.q1 as q1
 import numpy as np
 from numpy.linalg import norm
 from openai import OpenAI
@@ -65,6 +67,64 @@ def generate_concept_uuid(json_file):
         concept["similar_concepts"] = new_similar_concepts
     with open("concepts.json", "w") as j:
         json.dump(json_obj, j)
+
+# Retrieve knowledge graph of a specific question
+def retrieve_question_subgraph_json(filename, question, overall_json_file):
+    f = open(overall_json_file)
+    json_obj = json.load(f)
+    uuid_dict = {}
+    for concept in json_obj["concepts"]:
+        uuid_dict[concept["concept_id"]] = concept["concept_uuid"]
+    question_dict = {}
+    question_dict["question"] = question
+    with open(filename, 'rb') as f:
+        question_adjacency_dict = pickle.load(f)
+    question_kg = Graph()
+    question_kg.populateGraphFromAdjacencyDict(question_adjacency_dict, kg)
+    # Remove nodes
+    # question_kg.removeNodes([8])
+    new_nodes = []
+    for node in list(question_kg.nodesDict.keys()):
+        new_nodes.append(uuid_dict[node])
+    question_dict["nodes"] = new_nodes
+    new_adj_dict = {}
+    for key in question_kg.adjacencyDict:
+        child_nodes = []
+        for node in list(question_kg.adjacencyDict[key]):
+            child_nodes.append(uuid_dict[node])
+        new_adj_dict[uuid_dict[key]] = child_nodes
+    question_dict["adjacency_dict"] = new_adj_dict
+    json_final = json.dumps(question_dict)
+    with open("q2_subgraph.json", "w") as j:
+        json.dump(json_final, j)
+
+# Retrieve knowledge graph of a specific question
+def retrieve_knowledge_subgraph_json(filename):
+    f = open(filename)
+    json_obj = json.load(f)
+    uuid_dict = {}
+    for concept in json_obj["concepts"]:
+        uuid_dict[concept["concept_id"]] = concept["concept_uuid"]
+    subgraph_dict = {}
+    kg = Graph()
+    kg.populateGraphFromJSON(filename)
+    # Remove nodes
+    kg.removeNodes([8])
+    new_nodes = []
+    for node in list(kg.nodesDict.keys()):
+        new_nodes.append(uuid_dict[node])
+    subgraph_dict["nodes"] = new_nodes
+    new_adj_dict = {}
+    for key in kg.adjacencyDict:
+        child_nodes = []
+        for node in list(kg.adjacencyDict[key]):
+            child_nodes.append(uuid_dict[node])
+        new_adj_dict[uuid_dict[key]] = child_nodes
+    subgraph_dict["adjacency_dict"] = new_adj_dict
+    json_final = json.dumps(subgraph_dict)
+    with open("assignment_subgraph.json", "w") as j:
+        json.dump(json_final, j)
+
 
 
 def getEmbedding(text, model='text-embedding-3-small'):
@@ -263,8 +323,9 @@ def create_and_run_concepts_apply_assistant(problem, explanation_kg, concept_nod
     return final_message
 
 # generate_rephrased_concepts("test_files/basic_probability/prob_concepts.json")
-generate_concept_uuid("test_files/basic_probability/prob_concepts.json")
-idsdi
+# generate_concept_uuid("test_files/basic_probability/prob_concepts.json")
+# idsdi
+
 
 kg = Graph()
 kg.populateGraphFromJSON("test_files/basic_probability/prob_concepts.json")
@@ -279,17 +340,22 @@ with open('test_files/basic_probability/concept_embeddings.pkl', 'rb') as f:
     embedded_concepts = pickle.load(f)
 
 # Retrieve knowledge graph of a specific question
+# question = q2.q2["question"]
+# retrieve_question_subgraph_json('test_files/basic_probability/q2_kg.pkl', question,
+#                                 "test_files/basic_probability/prob_concepts.json")
+retrieve_knowledge_subgraph_json("test_files/basic_probability/prob_concepts.json")
+jlj
 with open('test_files/basic_probability/q3_kg.pkl', 'rb') as f:
     question_adjacency_dict = pickle.load(f)
 question_kg = Graph()
 question_kg.populateGraphFromAdjacencyDict(question_adjacency_dict, kg)
-question = test_files.basic_probability.q3.q3["question"]
+
 
 # Remove nodes of the concept graph that might be confusing or are not needed. This condenses the knowledge graph.
 kg.removeNodes([8])
 question_kg.removeNodes([8])
 
-for userPrompt in test_files.basic_probability.q3.q3["userPrompts"]:
+for userPrompt in q3.q3["userPrompts"]:
     prompt = userPrompt["prompt"]
     prompt_len = len(prompt)
     print(prompt)
