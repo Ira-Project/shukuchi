@@ -6,11 +6,11 @@ q3 = {
         #     "expectedResult": False,
         #     "answer": ""
         # },
-        # {
-        #     "prompt": "Probability is number of favourable outcomes divided total outcomes.",
-        #     "expectedResult": False,
-        #     "answer": ""
-        # },
+        {
+            "prompt": "Probability is number of favourable outcomes divided total outcomes.",
+            "expectedResult": False,
+            "answer": ""
+        },
         # {
         #     "prompt": "Probability is the sum of favourable outcomes divided by total outcomes. Favourable outcomes are what you want to happen and total outcomes are all the things that can happen",
         #     "expectedResult": False,

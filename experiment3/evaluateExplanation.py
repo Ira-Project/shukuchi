@@ -341,13 +341,15 @@ kg_start_nodes = [1]
 # Read embedding of concepts
 with open('test_files/basic_probability/concept_embeddings.pkl', 'rb') as f:
     embedded_concepts = pickle.load(f)
+# print(embedded_concepts[1][0])
+# ljkj
 
 # Retrieve knowledge graph of a specific question
 question = q4.q4["question"]
-retrieve_question_subgraph_json('test_files/basic_probability/q4_kg.pkl', question,
-                                "test_files/basic_probability/prob_concepts.json", "q4_subgraph.json")
+# retrieve_question_subgraph_json('test_files/basic_probability/q4_kg.pkl', question,
+#                                 "test_files/basic_probability/prob_concepts.json", "q4_subgraph.json")
 # retrieve_knowledge_subgraph_json("test_files/basic_probability/prob_concepts.json")
-jlj
+# jlj
 with open('test_files/basic_probability/q3_kg.pkl', 'rb') as f:
     question_adjacency_dict = pickle.load(f)
 question_kg = Graph()
@@ -386,17 +388,20 @@ for userPrompt in q3.q3["userPrompts"]:
         else:
             explanation_dict[concept_id].append("Yes")
             concept_ids_present.add(concept_id)
-    print(explanation_dict)
+    # print(explanation_dict)
+    # kjlj
     # print(concept_ids_present, question_kg.nodeParents)
     response_message = "Test"
     if len(concept_ids_present) == 0:
         response_message = random.choice(no_explanation_responses)
     else:
         valid_nodes, isolated_nodes = question_kg.getValidSubgraph(concept_ids_present, kg_start_nodes)
-        # print(valid_nodes, isolated_nodes, concept_ids_present)
+        print(valid_nodes, isolated_nodes, concept_ids_present)
         if len(valid_nodes) == 0:
             missing_concepts = question_kg.getMissingParentConcepts(concept_ids_present, kg_start_nodes)
             missing_concept_questions, _ = kg.getConceptQuestions(missing_concepts)
+            print(missing_concept_questions)
+            ljj
             response_message = create_and_run_missing_concepts_assistant(prompt, missing_concept_questions)
         else:
             answer_kg = create_and_run_concepts_present_assistant(prompt, concept_ids_present, kg)

@@ -13,9 +13,10 @@ from parameters import *
 from test_files import *
 
 class Node:
-    def __init__(self, concept_id, concept_question, concept, similar_concepts, concept_formula, calc_required,
+    def __init__(self, concept_id, concept_uuid, concept_question, concept, similar_concepts, concept_formula, calc_required,
                  concept_rephrases):
         self.concept_id = concept_id
+        self.concept_uuid = concept_uuid
         self.concept_question = concept_question
         self.concept = concept
         self.similar_concepts = similar_concepts
@@ -27,9 +28,9 @@ class Node:
         self.calc_required = calc_required
 
     def __eq__(self, other):
-        if self.concept_id in other.similar_concepts:
+        if self.concept_uuid in other.similar_concepts:
             return True
-        if other.concept_id in self.similar_concepts:
+        if other.concept_uuid in self.similar_concepts:
             return True
         return False
 
@@ -56,9 +57,9 @@ class Graph():
         self.adjacencyDict = {}
         self.nodeParents = {}
 
-    def addNode(self, concept_id, concept_question, concept, similar_concepts, concept_formula, calc_required,
+    def addNode(self, concept_id, concept_uuid, concept_question, concept, similar_concepts, concept_formula, calc_required,
                 concept_rephrases=""):
-        node = Node(concept_id, concept_question, concept, similar_concepts, concept_formula, calc_required, concept_rephrases)
+        node = Node(concept_id, concept_uuid, concept_question, concept, similar_concepts, concept_formula, calc_required, concept_rephrases)
         # Add node to nodes dictionary
         if concept_id not in self.nodesDict:
             self.nodesDict[concept_id] = node
@@ -88,11 +89,11 @@ class Graph():
             uuid_dict[concept["concept_uuid"]] = concept["concept_id"]
         for concept in json_obj["concepts"]:
             if "concept_rephrases" in concept:
-                self.addNode(concept["concept_id"], concept["concept_question"], concept["concept"],
+                self.addNode(concept["concept_id"], concept["concept_uuid"], concept["concept_question"], concept["concept"],
                          set(concept["similar_concepts"]), concept["concept_formula"], concept["calculation_required"],
                              concept_rephrases=concept["concept_rephrases"])
             else:
-                self.addNode(concept["concept_id"], concept["concept_question"], concept["concept"],
+                self.addNode(concept["concept_id"], concept["concept_uuid"], concept["concept_question"], concept["concept"],
                          set(concept["similar_concepts"]), concept["concept_formula"], concept["calculation_required"])
             for parent_concept_uuid in concept["parent_concepts"]:
                 self.addEdge(uuid_dict[parent_concept_uuid], concept["concept_id"])
