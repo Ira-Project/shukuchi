@@ -274,7 +274,7 @@ def create_and_run_concepts_present_assistant(explanation, check_concept_ids, ov
         concept_present_json = json.loads(concept_present_json)
         # print(user_message, concept_present_json)
         if concept_present_json["Answer Present"] == "Yes":
-            answer_kg.addNode(concept_id, kg.nodesDict[concept_id].concept_question, concept_present_json["Answer"],
+            answer_kg.addNode(concept_id, kg.nodesDict[concept_id].concept_uuid, kg.nodesDict[concept_id].concept_question, concept_present_json["Answer"],
                               kg.nodesDict[concept_id].similar_concepts, "", kg.nodesDict[concept_id].calc_required)
     client.beta.assistants.delete(assistant.id)
     return answer_kg
@@ -318,7 +318,7 @@ def create_and_run_concepts_apply_assistant(problem, explanation_kg, concept_nod
                 break
             sleep(1)
         concept_apply_json = json.loads(concept_apply_json)
-        print(user_message, concept_apply_json)
+        print(concept_apply_json)
         calculation_result = perform_calculation(concept_apply_json["Calculation"])
         final_message = final_message + concept_apply_json["Response"] + "\n" + "Calculation: " + \
                         str(calculation_result) + "\n"
@@ -350,15 +350,16 @@ question = q4.q4["question"]
 #                                 "test_files/basic_probability/prob_concepts.json", "q4_subgraph.json")
 # retrieve_knowledge_subgraph_json("test_files/basic_probability/prob_concepts.json")
 # jlj
-with open('test_files/basic_probability/q3_kg.pkl', 'rb') as f:
+with open('test_files/basic_probability/q4_kg.pkl', 'rb') as f:
     question_adjacency_dict = pickle.load(f)
 question_kg = Graph()
 question_kg.populateGraphFromAdjacencyDict(question_adjacency_dict, kg)
 
-
 # Remove nodes of the concept graph that might be confusing or are not needed. This condenses the knowledge graph.
 kg.removeNodes([8])
 question_kg.removeNodes([8])
+# print(question_kg.adjacencyDict)
+# hjkk
 
 for userPrompt in q3.q3["userPrompts"]:
     prompt = userPrompt["prompt"]
@@ -396,12 +397,10 @@ for userPrompt in q3.q3["userPrompts"]:
         response_message = random.choice(no_explanation_responses)
     else:
         valid_nodes, isolated_nodes = question_kg.getValidSubgraph(concept_ids_present, kg_start_nodes)
-        print(valid_nodes, isolated_nodes, concept_ids_present)
+        # print(valid_nodes, isolated_nodes, concept_ids_present)
         if len(valid_nodes) == 0:
             missing_concepts = question_kg.getMissingParentConcepts(concept_ids_present, kg_start_nodes)
             missing_concept_questions, _ = kg.getConceptQuestions(missing_concepts)
-            print(missing_concept_questions)
-            ljj
             response_message = create_and_run_missing_concepts_assistant(prompt, missing_concept_questions)
         else:
             answer_kg = create_and_run_concepts_present_assistant(prompt, concept_ids_present, kg)
@@ -411,8 +410,12 @@ for userPrompt in q3.q3["userPrompts"]:
                 missing_concepts = question_kg.getMissingConcepts(set(answer_kg.nodesDict.keys()), kg_start_nodes)
                 missing_concept_questions, _ = kg.getConceptQuestions(missing_concepts)
                 missing_concept_message = create_and_run_missing_concepts_assistant(prompt, missing_concept_questions)
+                print("Missing Concept Message:")
+                print(missing_concept_message)
             if apply_concept_nodes:
                 apply_concepts_message = create_and_run_concepts_apply_assistant(question, answer_kg, apply_concept_nodes)
-            jlj
+                print("Apply Concept Message:")
+                print(apply_concepts_message)
     print(response_message)
     print("-" * 20)
+    jkh
