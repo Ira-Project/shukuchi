@@ -1,6 +1,9 @@
 import json
 import random
 import shortuuid
+import os, sys
+parent_dir = os.path.dirname(os.path.realpath("/Users/likhitnayak/Ira Project/shukuchi/env.py"))
+sys.path.append(parent_dir)
 from env import OPENAI_KEY
 import pickle
 from knowledgeGraph import *
