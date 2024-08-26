@@ -1,0 +1,34 @@
+{
+    "Questions": [
+        {
+            "Question": "In the graph below, how much did the tree grow per day?",
+            "Question_image": "Yes",
+            "Answer": "8 cm/day",
+            "Answer_type": "single_correct_unit"
+        },
+        {
+            "Question": "Naomi is travelling to Atlanta at a speed of 40 km/hr. After travelling for 4 hrs, she still has 20 kms to go. Let $y$ represent the number of kms left to go after $x$ hours. Draw a graph of this relationship.",
+            "Question_image": "No",
+            "Answer": "$y = -40x + 180$, $hrs$, $kms$",
+            "Answer_type": "graph"
+        },
+        {
+            "Question": "What is the slope of the line passing through $(-3 ,-4)$ and $(2, 0)$?",
+            "Question_image": "No",
+            "Answer": 0.8,
+            "Answer_type": "single_correct"
+        },
+        {
+            "Question": "Graph a line with a slope of -2 that contains the point (2, 1).",
+            "Question_image": "No",
+            "Answer": "$y = -2x + 5$",
+            "Answer_type": "graph"
+        },
+        {
+            "Question": "Draw a graph of the equation $3x - y = 2$.",
+            "Question_image": "No",
+            "Answer": "$3x - y = 2$, $$, $$",
+            "Answer_type": "graph"
+        }
+    ]
+}

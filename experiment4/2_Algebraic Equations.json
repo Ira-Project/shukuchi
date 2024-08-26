@@ -1,0 +1,34 @@
+{
+    "Questions": [
+        {
+            "Question": "Solve the following equation: $3x - \\frac{7}{2} = 0.5x - 2$.",
+            "Question_image": "No",
+            "Answer": "$\\frac{3}{5}$",
+            "Answer_type": "single_correct"
+        },
+        {
+            "Question": "Solve the given equation for y: $4y = 8z(\\frac{2}{3}y - 2x) + 6z$.",
+            "Question_image": "No",
+            "Answer": "$\\frac{z(3 - 8x)}{2 - \\frac{8z}{3}}$",
+            "Answer_type": "single_correct"
+        },
+        {
+            "Question": "A movie tickets cost \\$15. Your friend paid \\$100 for some tickets. There was a an overall service charge of \\$10. How many tickets did your friend buy?",
+            "Question_image": "No",
+            "Answer": 6,
+            "Answer_type": "single_correct"
+        },
+        {
+            "Question": "Complete the equation $2(x + 3) + x = 3x + __$ so that it has infinitely many solutions.",
+            "Question_image": "No",
+            "Answer": "$2(x + 3) + x = 3x + 6$",
+            "Answer_type": "single_correct"
+        },
+        {
+            "Question": "Complete the equation $2(x + 3) + x = 3x + __$ so that it has no solutions.",
+            "Question_image": "No",
+            "Answer": "$2(x + 3) + x = 3x + c$, where c can be any number apart from 6",
+            "Answer_type": "multi_correct"
+        }
+    ]
+}

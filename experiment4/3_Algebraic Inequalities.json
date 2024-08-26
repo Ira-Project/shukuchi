@@ -1,0 +1,34 @@
+{
+    "Questions": [
+        {
+            "Question": "Solve the following inequality: $4x + 30 \\geq 7x + 39$.",
+            "Question_image": "No",
+            "Answer": "$x \\leq -3$",
+            "Answer_type": "single_correct"
+        },
+        {
+            "Question": "Maya went to the market with \\$52. She bought 12 eggs that cost \\$3.75. With the remaining money, she wants to buy as much salsa as she can. Each bottle of salsa costs \\$9.25. How many bottles can she buy?",
+            "Question_image": "No",
+            "Answer": 5,
+            "Answer_type": "single_correct"
+        },
+        {
+            "Question": "Solve the given inequality: $2x + 3 \\geq 7$ OR $2x + 9 > 11$",
+            "Question_image": "No",
+            "Answer": "$x > 1$",
+            "Answer_type": "single_correct"
+        },
+        {
+            "Question": "Solve the given inequality using a number line: $4x - 12 \\geq -16$ AND $8x + 9 < 25$",
+            "Question_image": "No",
+            "Answer": "$-1 \\leq x < 2$",
+            "Answer_type": "number_line"
+        },
+        {
+            "Question": "Lewis is ordering burgers and the restaurant has a discount of \\$10 on a total order cost of \\$50 or more. The cost of each burger is \\$8.75 and there is a flat delivery fee of \\$3. Let $B$ represent the number of burgers. Write an inequality to describe how many burgers should Lewis buy to get the discount.",
+            "Question_image": "No",
+            "Answer": "$8.75B + 3 > 50$",
+            "Answer_type": "single_correct"
+        }
+    ]
+}

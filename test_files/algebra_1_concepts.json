@@ -1,0 +1,953 @@
+{
+    "concepts": [
+        {
+            "concept_id": 1,
+            "concept_question" : "What is a variable?",
+            "concept": "A variable is a symbol used to represent a mathematical quantity that is not fixed, like an unknown number.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.INTRODUCTION"]
+        },
+        {
+            "concept_id": 2,
+            "concept_question" : "What is a constant?",
+            "concept": "A constant is a fixed mathematical quantity, like a number.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.INTRODUCTION"]
+        },
+        {
+            "concept_id": 3,
+            "concept_question" : "What is an algebraic expression?",
+            "concept": "An algebraic expression is a math phrase or statement that includes atleast one variable.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [1, 2],
+            "similar_concepts": [],
+            "concept_CCSS_subtopics": ["HSA.INTRODUCTION"]
+        },
+        {
+            "concept_id": 4,
+            "concept_question" : "What is an algebraic equation?",
+            "concept": "An algebraic equation is a math statement with two sides connected by an equal(=) sign and includes atleast one variable.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [1, 2],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.INTRODUCTION"]
+        },
+        {
+            "concept_id": 5,
+            "concept_question" : "What is an algebraic inequality?",
+            "concept": "An algebraic inequality is a math statement with two sides connected by one of the inequality symbols and includes atleast one variable.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [1, 2],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.INTRODUCTION"]
+        },
+        {
+            "concept_id": 6,
+            "concept_question" : "What are equivalent equations?",
+            "concept": "Equivalent equations are algebraic equations that have the same solution or set of solutions.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [4],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 7,
+            "concept_question" : "What is the addition property of equality?",
+            "concept": "Adding the same number to both sides of an equation produces an equivalent equation, i.e, it doesn't change the equation.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [13],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 8,
+            "concept_question" : "What is the subtraction property of equality?",
+            "concept": "Subtracting the same number from both sides of an equation produces an equivalent equation, i.e, it doesn't change the equation.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [13],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 9,
+            "concept_question" : "What is the multiplication property of equality?",
+            "concept": "Multiplying the same non-zero number to both sides of an equation produces an equivalent equation, i.e, it doesn't change the equation.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [13],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 10,
+            "concept_question" : "What is the division property of equality?",
+            "concept": "Dividing the same non-zero number from both sides of an equation produces an equivalent equation, i.e, it doesn't change the equation.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [13],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 11,
+            "concept_question" : "How to solve an equation?",
+            "concept": "To solve an algebraic equation, find the values of the unknown variables in that equation such that both sides of the equation are mathematically equal.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [4],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 12,
+            "concept_question" : "How to solve an inequality?",
+            "concept": "To solve an algebraic inequality, find the set of values of the unknown variables in that inequality such that it holds true mathematically.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [5],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 13,
+            "concept_question" : "How to isolate a variable in an equation?",
+            "concept": "Isolating a variable in an equation involves deriving an equivalent equation where that variable is by itself on one side of the equation.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [6, 11],
+            "similar_concepts": [16],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 14,
+            "concept_question" : "What does it mean to combine like terms in an equation?",
+            "concept": "Combining like terms in an equation is to simplify the coefficient of a variable by adding or subtracting all the coefficients of the same variable.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [13],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 15,
+            "concept_question" : "What is a formula?",
+            "concept": "A formula is a type of equation with multiple variables that relates some known real-world quantities.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [4, 11],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.INTRODUCTION"]
+        },
+        {
+            "concept_id": 16,
+            "concept_question" : "How to rewrite an equation?",
+            "concept": "Rewriting an equation is deriving an equivalent equation often in a manner such that the variable of interest is by itself on one side of the equation.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [6, 11],
+            "similar_concepts": [13],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 17,
+            "concept_question" : "What is a proportion?",
+            "concept": "A proportion is a type of equation that states that two ratios are equal and constant.",
+            "concept_formula": "a/b = c/d",
+            "concept_diagram": "",
+            "parent_concepts": [4],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 18,
+            "concept_question" : "What are the cross products in a ratio?",
+            "concept": "A cross product is the product of the numerator of one ratio with the denominator of another.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 19,
+            "concept_question" : "What is the cross product property of a proportion?",
+            "concept": "The cross products of a proportion are equal.",
+            "concept_formula": "If a/b = c/d, then ac = bd",
+            "concept_diagram": "",
+            "parent_concepts": [13, 17, 18],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 20,
+            "concept_question" : "Can the denominators of the ratios in a proportion be zero?",
+            "concept": "In a proportion, the denominators of the ratios are non-zero numbers.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [17],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 21,
+            "concept_question" : "What are similar triangles?",
+            "concept": "In similar triangle, the measures of corresponding angles are equal, and corresponding side lengths are in proportion.",
+            "concept_formula": "",
+            "concept_diagram": "triangle",
+            "parent_concepts": [17],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 22,
+            "concept_question" : "What is the scale of a model?",
+            "concept": "All the linear measurements of a model are in proportion to the corresponding linear measurements of the actual object. This constant proportion is called the scale of the model.",
+            "concept_diagram": "",
+            "parent_concepts": [17],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 23,
+            "concept_question" : "What is a closed dot over a number in a number line?",
+            "concept": "A closed dot at a number in a number line indicates that the number is included in the set of values being represented in the number line.",
+            "concept_formula": "",
+            "concept_diagram": "number_line",
+            "parent_concepts": [52],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 24,
+            "concept_question" : "What is an open dot over a number in a number line?",
+            "concept": "A open dot over a number in a number line indicates that the number is not included in the set of values being represented in the number line.",
+            "concept_formula": "",
+            "concept_diagram": "number_line",
+            "parent_concepts": [52],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 25,
+            "concept_question" : "How to represent a set of values greater than a number in a number line?",
+            "concept": "Shade to the right of a number to indicate that the values greater than that number are included in the set of values being represented in the number line.",
+            "concept_formula": "",
+            "concept_diagram": "number_line",
+            "parent_concepts": [52],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 26,
+            "concept_question" : "How to represent a set of values lesser than a number in a number line?",
+            "concept": "Shade to the left of a number to indicate that the values greater than that number are included in the set of values being represented in the number line.",
+            "concept_formula": "",
+            "concept_diagram": "number_line",
+            "parent_concepts": [52],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 27,
+            "concept_question" : "What are equivalent inequalities?",
+            "concept": "Equivalent inequalities are algebraic inequalities that have the same solution or set of solutions.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [5],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 28,
+            "concept_question" : "How to isolate a variable in an inequality?",
+            "concept": "Isolating a variable in an inequality involves deriving an equivalent inequality where that variable is by itself on one side of the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [27, 12],
+            "similar_concepts": [29],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 29,
+            "concept_question" : "How to rewrite an inequality?",
+            "concept": "Rewriting an inequality is deriving an equivalent inequality often in a manner such that the variable of interest is by itself on one side of the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [27, 12],
+            "similar_concepts": [28],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 30,
+            "concept_question" : "What does it mean to combine like terms in an inequality?",
+            "concept": "Combining like terms in an inequality is to simplify the coefficient of a variable by adding or subtracting all the coefficients of the same variable.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 31,
+            "concept_question" : "What is the addition property of inequality?",
+            "concept": "Adding the same number to both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 32,
+            "concept_question" : "What is the subtraction property of inequality?",
+            "concept": "Subtracting the same number from both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 33,
+            "concept_question" : "What is the multiplication property of inequality?",
+            "concept": "Multiplying the same positive number to both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality. Multiplying the same negative number to both sides of an inequality reverses the sign of the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 34,
+            "concept_question" : "What is the division property of inequality?",
+            "concept": "Dividing the same positive number from both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality. Dividing the same negative number from both sides of an inequality reverses the sign of the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 35,
+            "concept_question" : "What is a set?",
+            "concept": "A set is a collection of distinct elements, like numbers.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.INTRODUCTION"]
+        },
+        {
+            "concept_id": 36,
+            "concept_question" : "What is the roster form of writing a set?",
+            "concept": "Roster form is a way to write sets by listing the elements of a set within curly braces ({}).",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [35],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 37,
+            "concept_question" : "What is the set-builder notation of writing a set?",
+            "concept": "In a set-builder notation, the conditions that the elements must fulfill to be part of the set is written within curly braces ({}).",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [35],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 38,
+            "concept_question" : "What is the complement of a set?",
+            "concept": "The complement of a set is a set of all the elements that are not in the original set.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [35],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 39,
+            "concept_question" : "What is a compound inequality?",
+            "concept": "A compound inequality is a combination of two distinct inequalities that are combined using the word 'and' or the word 'or'.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [5],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 40,
+            "concept_question" : "How to solve a compound inequality with the word 'and'?",
+            "concept": "To solve a compound inequality with the word 'and', solve each distinct inequality in the compound inequality and then find the intersection of the two distinct solutions.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [39, 12],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 41,
+            "concept_question" : "How to solve a compound inequality with the word 'or'?",
+            "concept": "To solve a compound inequality with the word 'or', solve each distinct inequality in the compound inequality and then the union of the two distinct solutions",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [39, 12],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 42,
+            "concept_question" : "What does it mean to combine like terms in an inequality?",
+            "concept": "Combining like terms in an inequality is to simplify the coefficient of a variable by adding or subtracting all the coefficients of the same variable.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [40, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 43,
+            "concept_question" : "What is the addition property of inequality?",
+            "concept": "Adding the same number to both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [40, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 44,
+            "concept_question" : "What is the subtraction property of inequality?",
+            "concept": "Subtracting the same number from both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [40, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 45,
+            "concept_question" : "What is the multiplication property of inequality?",
+            "concept": "Multiplying the same positive number to both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality. Multiplying the same negative number to both sides of an inequality reverses the sign of the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [40, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 46,
+            "concept_question" : "What is the division property of inequality?",
+            "concept": "Dividing the same positive number from both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality. Dividing the same negative number from both sides of an inequality reverses the sign of the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [40, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 47,
+            "concept_question" : "What does it mean to combine like terms in an inequality?",
+            "concept": "Combining like terms in an inequality is to simplify the coefficient of a variable by adding or subtracting all the coefficients of the same variable.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [41, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 48,
+            "concept_question" : "What is the addition property of inequality?",
+            "concept": "Adding the same number to both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [41, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 49,
+            "concept_question" : "What is the subtraction property of inequality?",
+            "concept": "Subtracting the same number from both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [41, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 50,
+            "concept_question" : "What is the multiplication property of inequality?",
+            "concept": "Multiplying the same positive number to both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality. Multiplying the same negative number to both sides of an inequality reverses the sign of the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [41, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 51,
+            "concept_question" : "What is the division property of inequality?",
+            "concept": "Dividing the same positive number from both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality. Dividing the same negative number from both sides of an inequality reverses the sign of the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [41, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 52,
+            "concept_question" : "What is a number line",
+            "concept": "A number line is graphical representation of a set of values, for example the solution set of an inequality.",
+            "concept_formula": "",
+            "concept_diagram": "number_line",
+            "parent_concepts": [],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.INTRODUCTION"]
+        },
+        {
+            "concept_id": 53,
+            "concept_question" : "How to represent the solution to a compound inequality which has the word 'and' in a number line?",
+            "concept": "Shade the overlap of the number lines representing the solution set of the two inequalities that form the compound inequality.",
+            "concept_formula": "",
+            "concept_diagram": "number_line",
+            "parent_concepts": [40, 23, 24, 25, 26],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 54,
+            "concept_question" : "How to represent the solution to a compound inequality which has the word 'or' in a number line?",
+            "concept": "Shade each individual number line representing the solution set of the two inequalities that form the compound inequality.",
+            "concept_formula": "",
+            "concept_diagram": "number_line",
+            "parent_concepts": [41, 23, 24, 25, 26],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 55,
+            "concept_question" : "Can you rewrite a compound inequality which has the word 'and' as a single inequality?",
+            "concept": "Yes, you can do it.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [39],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 56,
+            "concept_question" : "How to isolate a variable in a compound inequality which has the word 'and'?",
+            "concept": "Isolating a variable in a compound inequality with the word 'and' involves deriving an equivalent inequality where that variable is by itself between the two signs of the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [55, 40, 27],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 57,
+            "concept_question" : "What is the interval notation?",
+            "concept": "Interval notation is used to represent of a set of values between two endpoints in an interval, for example the solution set of an inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 58,
+            "concept_question" : "What is a parentheses in an interval notation?",
+            "concept": "A parentheses is used to indicate that the interval's endpoint is not included.",
+            "concept_formula": "",
+            "concept_diagram": "number_line",
+            "parent_concepts": [57],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 59,
+            "concept_question" : "What is a square bracket in an interval notation?",
+            "concept": "A square bracket is used to indicate that the interval's endpoint is included.",
+            "concept_formula": "",
+            "concept_diagram": "number_line",
+            "parent_concepts": [57],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 60,
+            "concept_question" : "How is the infinity symbol used in an interval notation?",
+            "concept": "The infinity symbol is used when the interval continues forever in a positive direction.",
+            "concept_formula": "",
+            "concept_diagram": "number_line",
+            "parent_concepts": [57],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 61,
+            "concept_question" : "How is the negative infinity symbol used in an interval notation?",
+            "concept": "The negative infinity symbol is used when the interval continues forever in a negative direction.",
+            "concept_formula": "",
+            "concept_diagram": "number_line",
+            "parent_concepts": [57],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.B.3"]
+        },
+        {
+            "concept_id": 62,
+            "concept_question" : "What is an absolute value of a constant or a variable?",
+            "concept": "The absolute value represents the non-negative value, denoting its distance from zero.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.INTRODUCTION"]
+        },
+        {
+            "concept_id": 63,
+            "concept_question" : "What is an absolute value expression?",
+            "concept": "An absolute value expression denotes the absolute value of an algebraic expression by bounding the expression in the absolute value symbol.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [62, 3],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.INTRODUCTION"]
+        },
+        {
+            "concept_id": 64,
+            "concept_question" : "What is an absolute value equation?",
+            "concept": "An absolute value equation is an equation that contains an absolute value expression.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [63, 4],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 65,
+            "concept_question" : "How to solve an absolute value equation?",
+            "concept": "To solve an absolute value equation, you have to solve two equations. Solve the first equation after replacing the absolute value expression by its postive expression. Solve the second equation after replacing the absolute value expression by its negative expression.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [64, 11],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 66,
+            "concept_question" : "What does it mean to combine like terms in an equation?",
+            "concept": "Combining like terms in an equation is to simplify the coefficient of a variable by adding or subtracting all the coefficients of the same variable.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [65, 13],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 67,
+            "concept_question" : "What is the addition property of equality?",
+            "concept": "Adding the same number to both sides of an equation produces an equivalent equation, i.e, it doesn't change the equation.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [65, 13],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 68,
+            "concept_question" : "What is the subtraction property of equality?",
+            "concept": "Subtracting the same number from both sides of an equation produces an equivalent equation, i.e, it doesn't change the equation.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [65, 13],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 69,
+            "concept_question" : "What is the multiplication property of equality?",
+            "concept": "Multiplying the same non-zero number to both sides of an equation produces an equivalent equation, i.e, it doesn't change the equation.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [65, 13],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 70,
+            "concept_question" : "What is the division property of equality?",
+            "concept": "Dividing the same non-zero number from both sides of an equation produces an equivalent equation, i.e, it doesn't change the equation.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [65, 13],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 71,
+            "concept_question" : "What is an absolute value inequality?",
+            "concept": "An absolute value inequality is an inequality that contains an absolute value expression.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [63, 5],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 72,
+            "concept_question" : "How to solve an absolute value inequality?",
+            "concept": "To solve an absolute value inequality, solve two inequalities. Solve the first inequality after replacing the absolute value expression by its postive expression. Solve the second inequality after replacing the absolute value expression by its negative expression.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [64, 12],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 73,
+            "concept_question" : "What does it mean to combine like terms in an inequality?",
+            "concept": "Combining like terms in an inequality is to simplify the coefficient of a variable by adding or subtracting all the coefficients of the same variable.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [72, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 74,
+            "concept_question" : "What is the addition property of inequality?",
+            "concept": "Adding the same number to both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [72, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 75,
+            "concept_question" : "What is the subtraction property of inequality?",
+            "concept": "Subtracting the same number from both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [72, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 76,
+            "concept_question" : "What is the multiplication property of inequality?",
+            "concept": "Multiplying the same positive number to both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality. Multiplying the same negative number to both sides of an inequality reverses the sign of the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [72, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 77,
+            "concept_question" : "What is the division property of inequality?",
+            "concept": "Dividing the same positive number from both sides of an inequality produces an equivalent inequality, i.e, it doesn't change the inequality. Dividing the same negative number from both sides of an inequality reverses the sign of the inequality.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [72, 28],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.REI.A.1", "HSA.REI.B.3", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 78,
+            "concept_question" : "When does an absolute value equation have no solution?",
+            "concept": "When the absolute value of an expression is a negative constant, then that equation has no solution",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [64],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1", "HSA.SSE.A.1"]
+        },
+        {
+            "concept_id": 79,
+            "concept_question" : "What is the union of two or more sets?",
+            "concept": "The union of two or more sets is a set containing all the elements that are in atleast one of the individual sets.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [35],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1"]
+        },
+        {
+            "concept_id": 80,
+            "concept_question" : "What is the intersection of two or more sets?",
+            "concept": "The intersection of two or more sets is a set containing the elements that are common to all the individual sets.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [35],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1"]
+        },
+        {
+            "concept_id": 81,
+            "concept_question" : "What is disjoint sets?",
+            "concept": "Disjoint sets are sets that have zero elements in common.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [35],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1"]
+        },
+        {
+            "concept_id": 82,
+            "concept_question" : "What is the intersection of disjoint sets?",
+            "concept": "The intersection of disjoint sets is the empty set.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [80, 81],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1"]
+        },
+        {
+            "concept_id": 83,
+            "concept_question" : "What is a venn diagram?",
+            "concept": "A venn diagram is a graphical representation that uses circles to represent sets.",
+            "concept_formula": "",
+            "concept_diagram": "venn_diagram",
+            "parent_concepts": [],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.INTRODUCTION"]
+        },
+        {
+            "concept_id": 84,
+            "concept_question" : "How do you represent the union of two sets in a venn diagram?",
+            "concept": "Shade all the areas that are part of each circle that represent the individual sets.",
+            "concept_formula": "",
+            "concept_diagram": "venn_diagram",
+            "parent_concepts": [83],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1"]
+        },
+        {
+            "concept_id": 85,
+            "concept_question" : "How do you represent the intersection of two sets in a venn diagram?",
+            "concept": "Shade the areas that are common or overlapping between all the two circles representing each individual set.",
+            "concept_formula": "",
+            "concept_diagram": "venn_diagram",
+            "parent_concepts": [83],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.CED.A.1"]
+        },
+        {
+            "concept_id": 86,
+            "concept_question" : "What is a graph?",
+            "concept": "It is a diagram or a visual showing the relation between two variables which are represented along two axes.",
+            "concept_formula": "",
+            "concept_diagram": "graph",
+            "parent_concepts": [],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSF.IF.B.4"]
+        },
+        {
+            "concept_id": 87,
+            "concept_question" : "What are the axes on a graph?",
+            "concept": "Each variable represented by a graph is measured along a axis. There is a horizontal axis and a vertical axis.",
+            "concept_formula": "",
+            "concept_diagram": "graph",
+            "parent_concepts": [86],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSF.IF.B.4"]
+        },
+        {
+            "concept_id": 88,
+            "concept_question" : "What are independent and dependent variables?",
+            "concept": "Dependent variables are those whose values depend and change in response to the values of the independent variables.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [],
+            "similar_concepts": [91],
+            "concept_CCSS_subtopic": ["HSA.REI.D.10", "HSF.IF.B.4"]
+        },
+        {
+            "concept_id": 89,
+            "concept_question" : "What is represented on the horizontal axis on a graph?",
+            "concept": "The horizontal axis represents an independent variable.",
+            "concept_formula": "",
+            "concept_diagram": "graph",
+            "parent_concepts": [87, 88],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSF.IF.B.4"]
+        },
+        {
+            "concept_id": 90,
+            "concept_question" : "What is represented on the vertical axis on a graph?",
+            "concept": "The vertical axis represents a dependent variable.",
+            "concept_formula": "",
+            "concept_diagram": "graph",
+            "parent_concepts": [87, 88],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSF.IF.B.4"]
+        },
+        {
+            "concept_id": 91,
+            "concept_question" : "What are input and output in a graph or a function?",
+            "concept": "Output is a variable whose value depends and changes in response to the values of another variable called the input.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [86, 92],
+            "similar_concepts": [88],
+            "concept_CCSS_subtopic": ["HSA.REI.D.10", "HSF.IF.B.4"]
+        },
+        {
+            "concept_id": 92,
+            "concept_question" : "What is a function?",
+            "concept": "A function is a mathematical description of the relationship between an input variable and an output variable.",
+            "concept_formula": "",
+            "concept_diagram": "",
+            "parent_concepts": [],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.D.10", "HSF.IF.B.4"]
+        },
+        {
+            "concept_id": 93,
+            "concept_question" : "How do you visually represent a function?",
+            "concept": "A function can be visually represented using a graph.",
+            "concept_formula": "",
+            "concept_diagram": "graph",
+            "parent_concepts": [86, 92],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.D.10", "HSF.IF.B.4"]
+        },
+        {
+            "concept_id": 94,
+            "concept_question" : "What is the graph of a linear function?",
+            "concept": "The graph of a linear function is a straight line.",
+            "concept_formula": "",
+            "concept_diagram": "graph",
+            "parent_concepts": [93],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.D.10", "HSF.IF.B.4"]
+        },
+        {
+            "concept_id": 95,
+            "concept_question" : "What is graph of a non-linear function?",
+            "concept": "The graph of a linear function is not a straight line.",
+            "concept_formula": "",
+            "concept_diagram": "graph",
+            "parent_concepts": [93],
+            "similar_concepts": [],
+            "concept_CCSS_subtopic": ["HSA.REI.D.10", "HSF.IF.B.4"]
+        }
+    ]
+}

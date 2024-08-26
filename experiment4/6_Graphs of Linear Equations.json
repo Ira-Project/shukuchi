@@ -1,0 +1,34 @@
+{
+    "Questions": [
+        {
+            "Question": "Determine the x-intercept of the line from the given graph.",
+            "Question_image": "Yes",
+            "Answer": "$(-4, 0)$",
+            "Answer_type": "single_correct"
+        },
+        {
+            "Question": "The rates for a cab includes a flat base fee plus some contant fee per mile. The table below lists the distance of the trip and the corresponding rate. What is the base fee for the cab?",
+            "Question_image": "No",
+            "Answer": "\\$20",
+            "Answer_type": "single_correct_unit"
+        },
+        {
+            "Question": "What is the y-intercept of the line $3x - 7 = -2y + 5$?",
+            "Question_image": "No",
+            "Answer": "$(0, 6)$",
+            "Answer_type": "single_correct"
+        },
+        {
+            "Question": "Dwayne hasn't had his hair cut in a long time. His hair length (in millimeters) as a function of time (in days) is graphed below. What was Dwayne's hair length after his last hair cut?",
+            "Question_image": "No",
+            "Answer": "20 mm",
+            "Answer_type": "single_correct_unit"
+        },
+        {
+            "Question": "Charles is tranferring files to his flash drive. The flash drive already had 2 GB of files in it and new files are being transferrd at a rate of 1.5 GB/sec. Graph the relationship between the size of the files on Charles's drive (in GB) and time (in seconds).",
+            "Question_image": "No",
+            "Answer": "$y = 1.5x + 2$, $GB$, $sec$",
+            "Answer_type": "graph"
+        }
+    ]
+}

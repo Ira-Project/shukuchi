@@ -1,0 +1,34 @@
+{
+    "Questions": [
+        {
+            "Question": "A train is accelerating at $100 km/h^2$. What is its acceleration in $m/s^2$",
+            "Question_image": "No",
+            "Answer": 0.007716049382716,
+            "Answer_type": "single_correct"
+        },
+        {
+            "Question": "Noah ran for 20 minutes at an average speed of 6 kilometers per hour. How much distance did he run in metres?",
+            "Question_image": "No",
+            "Answer": 2000, 
+            "Answer_type": "single_correct"
+        },
+        {
+            "Question": "A basketball player makes 75% of her free-throw attempts. How many attempts does she need to make to score 12 free throws?",
+            "Question_image": "No",
+            "Answer": 16,
+            "Answer_type": "single_correct"
+        },
+        {
+            "Question": "A car has a length of 9 ft and width of 6 ft. You are designing a model of the car with a width of 10 in. What will the length of your model be?",
+            "Question_image": "No",
+            "Answer": "15 in",
+            "Answer_type": "single_correct_unit"
+        },
+        {
+            "Question": "Robert is making 10 servings of spiced rice for his guests where the rice-to-spice ratio is 15:1. He currently has 40 grams of the spice, and he needs to buy rice so that he will use all 40 grams of spice. He spends 1.20 dollars on rice. What is cost of rice per kilogram?",
+            "Question_image": "No",
+            "Answer": "\\$2",
+            "Answer_type": "single_correct_unit"
+        }
+    ]
+}
