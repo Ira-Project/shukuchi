@@ -25,8 +25,9 @@ client = OpenAI(
     api_key=OPENAI_KEY,
 )
 
-# client = Groq(
-#     api_key=GROQ_KEY,
+# client = OpenAI(
+#     base_url="https://api.groq.com/openai/v1",
+#     api_key=GROQ_KEY
 # )
 
 def generate_rephrased_concepts(json_file):
@@ -140,7 +141,7 @@ def retrieve_knowledge_subgraph_json(filename):
 
 def getEmbedding(text, model='text-embedding-3-small'):
     text = text.replace("\n", " ")
-    return client.embeddings.create(input=[text], model=model).data[0].embedding
+    return openai_client.embeddings.create(input=[text], model=model).data[0].embedding
 
 def generate_concept_embeddings(graph):
     embedded_concept_dict = {}
