@@ -1,0 +1,36 @@
+{
+    "Questions": [
+        {
+            "Question": "A woollen ball and a metal ball have the same negative charge on them. Where do the charges reside?",
+            "Question_image": "No",
+            "Answer": "On the surface of the metal ball and across the volume of the woollen ball",
+            "Answer_type": "single_correct_descriptive"
+        },
+        {
+            "Question": "Two metal spheres attract each other when brought close. What is the nature of charges on the spheres? The spheres are then brought in contact with one another and after touching, they do not attract or repel each other. What are the amount of charges on the spheres?",
+            "Question_image": "No",
+            "Answer": ["They have opposite charges", "The spheres had equal amount of charges"],
+            "Answer_type": "single_correct_descriptive_multi_part"
+        },
+        {
+            "Question": "A solid metal sphere is placed between two charged parallel metal plates. One plate has a positive charge and the other has a negative charge. What will be the charge on the sphere after equilibrium? Draw the charges on the sphere.",
+            "Question_image": "Yes",
+            "Answer": ["No overall charge", "The sphere will have a negative charge on the side closer to the positive plate and a positive charge on the side closer to the negative plate"],
+            "Answer_type": "single_correct_descriptive_image_multi_part"
+        },
+        {
+            "Question": "Two identical, neutral conducting spheres are mounted on insulating handles and kept close to each other. A positively charged rod is brought close to the first sphere without touching it while the second sphere is grounded. Draw the charges on the spheres. After the grounding is removed, draw the charges on the spheres. Finally, the postively charged rod is also removed. Draw the resulting charges on the sphere.",
+            "Question_image": "Yes",
+            "Answer": ["The side of the first sphere close to the positively charged rod has a negative charge and the other side has a positive charge. The side of the second sphere close to the positive side of the first sphere develops a negative charge and the other side of the second sphere, which is grounded, has no charge", 
+                        "The side of the first sphere close to the positively charged rod has a negative charge and the other side has a positive charge. The side of the second sphere close to the positive side of the first sphere develops a large negative charge and the other side of the second sphere has a small negative charge", 
+                        "The second sphere has a negative charge distributed across it's surface. The side of the first sphere close to the second sphere has a positive charge and the other side has a negative charge"],
+            "Answer_type": "single_correct_descriptive_image_multi_part"
+        },
+        {
+            "Question": "A metal rod with a postive charge is brought into contact with a neutral plastic ruler. What will be the charge on the ruler?",
+            "Question_image": "No",
+            "Answer": "No charge",
+            "Answer_type": "single_correct_descriptive"
+        }
+    ]
+}
