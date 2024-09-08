@@ -11,12 +11,17 @@ thinker_new_condition_prompt_pre = "Derive the most direct condition with logica
 thinker_new_condition_prompt_post = " \nObjective: "
 
 read_explanation_model = "gpt-4o"
-read_explanation_instructions = "You take the role of a thinker. I need you to carefully think over an explanation and verify some information for me. Your response should be a valid jsonlist called 'verifications' where each json object has 'verification_question' and 'verification_answer' attributes. The verification_answer can only be 'Yes', 'No', or 'Unknown'. The verification_questions are given as follows:\n"
-read_explanation_prompt_pre = "Help me answer the verification_questions based on the given explanation. \nExplanation: "
+read_explanation_instructions = "You take the role of a thinker. I need you to carefully read over an explanation and verify some information for me. Your response should be a valid jsonlist called 'verifications' where each json object has 'verification_question' and 'verification_answer' attributes. The verification_answer can only be 'Yes', 'No', or 'Unknown'. The verification_questions are given as follows:\n"
+read_explanation_prompt_pre = "Based on the given explanation, answer each verification_question. You can NOT use any information that is not given in the explanation. \nExplanation: "
 
 output_answer_model = "gpt-4o"
 output_answer_instructions = "You are a paraphraser. I need you to read a question and it's solution and reword and rephrase that solution. Your response should be a json object which has 'solution', and 'answer' attributes. The 'solution' will be a reworded and rephrased version of the given solution. The 'answer' will be short and concise verion of the solution that directly addresses the given question."
 output_answer_prompt_pre = "Help me paraphrase the solution to the given question. \nQuestion: "
 output_answer_prompt_post = "\nSolution: "
 
-explanation_sample = "There is no difference between conductors and insulators. Negative charges have no effect on one another."
+answer_explanation_model = "gpt-4o"
+answer_explanation_instructions = "You take the role of a thinker. I need you to carefully think over an explanation and answer a question for me. The questions you have to answer is:\n"
+answer_explanation_prompt_pre = "Help me answer the question based on the given explanation. \nExplanation: "
+
+
+explanation_sample = "Grounding sends charges to the earth"
