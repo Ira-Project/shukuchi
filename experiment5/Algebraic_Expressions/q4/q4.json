@@ -1,0 +1,10 @@
+{
+    "question_id": 1,
+    "Question": "Simplify $-5(3 + 2k) + 4(3k - 2)$.",
+    "Question_image": "No",
+    "Answer": "$2k - 23$",
+    "Answer_type": "single_correct",
+    "required_concepts": [],
+    "known_concepts": [],
+    "not_required_concepts": []
+}

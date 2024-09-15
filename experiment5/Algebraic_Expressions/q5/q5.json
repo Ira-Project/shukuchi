@@ -1,0 +1,10 @@
+{
+    "question_id": 1,
+    "Question": "Simplify $\\frac{2}{3}x + 0.2(x - y) + 3y$.",
+    "Question_image": "No",
+    "Answer": "$\\frac{13x}{15} + 2.8y$",
+    "Answer_type": "single_correct",
+    "required_concepts": [],
+    "known_concepts": [],
+    "not_required_concepts": []
+}

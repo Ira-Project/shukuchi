@@ -21,7 +21,7 @@ def read_explanation(concept_questions, explanation):
         temperature=0.5
     )
     response_message = json.loads(response.choices[0].message.content)
-    print(response_message)
+    # print(response_message)
     return response_message
 
 def answer_explanation(concept_question, explanation, json_instruction):
@@ -55,6 +55,7 @@ file = open("1_Electric Charge.json")
 assignment = json.load(file)
 file.close()
 
+
 # Initialize the dictionaries
 required_concepts_dict = {}
 not_required_concepts_dict = {}
@@ -67,25 +68,25 @@ for question in assignment["Questions"]:
     for concept in question["not_required_concepts"]:
         not_required_concepts_dict[concept] = ""
 
-# Convert requires and not_required concepts to a list of questions
-question_number = 1
+# Convert required and not_required concepts to a list of questions
 question_list = ""
 for concept_question in required_concepts_dict.keys():
-    # question_list =  question_list + str(question_number) + ") " + concept_question + "\n"
     question_list =  question_list + concept_question + "\n"
-    question_number += 1
 for concept_question in not_required_concepts_dict.keys():
     question_list =  question_list + concept_question + "\n"
-    question_number += 1
 
+#### HANDLED IN JS
 # Get answers to the question_list
-learner_explantion = explanation_sample
-verifications_json = read_explanation(question_list, learner_explantion)
+learner_explanation = explanation_sample
+verifications_json = read_explanation(question_list, learner_explanation)
+#### HANDLED IN JS
+
 for verification in verifications_json["verifications"]:
     if verification['verification_question'] in required_concepts_dict:
         required_concepts_dict[verification['verification_question']] = verification['verification_answer']
     elif verification['verification_question'] in not_required_concepts_dict:
         not_required_concepts_dict[verification['verification_question']] = verification['verification_answer']
+
 
 # Reasoning engine for question 1
 def evaluate_question_1():
@@ -163,7 +164,7 @@ def evaluate_question_1():
         elif required_concepts_dict[r_c[0][1]] == "Unknown" and required_concepts_dict[r_c[0][2]] == "Unknown":
             answer = answer + "I can't figure how to answer this question based on your explanation."
     elif required_concepts_dict[r_c[0][0]] == "No":
-        follow_up_json = read_explanation("1) Do negative charges attract each other?", learner_explantion)
+        follow_up_json = read_explanation("1) Do negative charges attract each other?", learner_explanation)
         if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
             k_c.append("negative charges will attract one another")
             answer = answer + "Based on your explanation, I understood that negative charges will attract one another."
@@ -231,9 +232,9 @@ def evaluate_question_2():
                 k_c.append("opposite charges attract each other")
                 answer = answer + "Based on your explanation, I understood that positive and negative charges are two types of charges and opposite charges attract each other."
                 answer = answer + " So, one metal sphere will have a postive charge and the other will have a negative charge."
-                correct1 = True
+                correct = True
             elif required_concepts_dict[r_c[0][2]] == "No":
-                follow_up_json = read_explanation("Do opposite charges repel each other?", learner_explantion)
+                follow_up_json = read_explanation("Do opposite charges repel each other?", learner_explanation)
                 if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                     k_c.append("opposite charges repel each other")
                     answer = answer + "Based on your explanation, I understood that positive and negative charges are two types of charges and opposite charges repel each other."
@@ -243,7 +244,7 @@ def evaluate_question_2():
                     answer = answer + "Based on your explanation, I understood that positive and negative charges are two types of charges and opposite charges neither attract nor repel each other."
                     answer = answer + " But, I don't know how to figure out which charges are on the spheres."
                 else:
-                    follow_up_json = read_explanation("Do like charges attract each other?", learner_explantion)
+                    follow_up_json = read_explanation("Do like charges attract each other?", learner_explanation)
                     if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                         k_c.append("like charges attract each other")
                         nswer1 = answer + "Based on your explanation, I understood that positive and negative charges are two types of charges and like charges attract each other."
@@ -254,17 +255,16 @@ def evaluate_question_2():
             elif required_concepts_dict[r_c[0][2]] == "Unknown":
                  answer = answer + "Based on your explanation, I understood that positive and negative charges are two types of charges but using just that, I don't know how to determine the nature of the charges on the spheres that attract one another."
         elif required_concepts_dict[r_c[0][1]] == "No":
-            follow_up_answer = answer_explanation("What are the two types of charges?", learner_explantion, "Your response should be a json object 'charges' containing an array of the two types of charges.")
+            follow_up_answer = answer_explanation("What are the two types of charges?", learner_explanation, "Your response should be a json object 'charges' containing an array of the two types of charges.")
             charge_1 = follow_up_answer['charges'][0]
             charge_2 = follow_up_answer['charges'][1]
-            print(follow_up_answer)
             k_c.append(charge_1 + " and " + charge_2 + " are the two types of charges")
             if required_concepts_dict[r_c[0][2]] == "Yes":
                 k_c.append(charge_1 + " and " + charge_2 + " charges attract each other")
                 answer = answer + "Based on your explanation, I understood that " + charge_1 + " and " + charge_2 + " are the two types of charges and opposite charges attract each other."
                 answer = answer + " So, one metal sphere will have a " + charge_1 + " charge and the other will have a " + charge_2 + " charge."
             elif required_concepts_dict[r_c[0][2]] == "No":
-                follow_up_json = read_explanation("Do opposite charges repel each other?", learner_explantion)
+                follow_up_json = read_explanation("Do opposite charges repel each other?", learner_explanation)
                 if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                     k_c.append("opposite charges repel each other")
                     answer = answer + "Based on your explanation, I understood that " + charge_1 + " and " + charge_2 + " are the two types of charges and opposite charges repel each other."
@@ -274,7 +274,7 @@ def evaluate_question_2():
                     answer = answer + "Based on your explanation, I understood that " + charge_1 + " and " + charge_2 + " are the two types of charges and opposite charges neither attract nor repel each other."
                     answer = answer + " But, I don't know how to figure out which charges are on the spheres."
                 else:
-                    follow_up_json = read_explanation("Do like charges attract each other?", learner_explantion)
+                    follow_up_json = read_explanation("Do like charges attract each other?", learner_explanation)
                     if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                         k_c.append("like charges attract each other")
                         nswer1 = answer + "Based on your explanation, I understood that " + charge_1 + " and " + charge_2 + " are the two types of charges and like charges attract each other."
@@ -290,7 +290,7 @@ def evaluate_question_2():
                 answer = answer + "Based on your explanation, I understood that there are two types of charges and opposite charges attract each other."
                 answer = answer + " So, the two metal spheres will have opposite charges on them. But can you specify what these opposite charges are?"
             elif required_concepts_dict[r_c[0][2]] == "No":
-                follow_up_json = read_explanation("Do opposite charges repel each other?", learner_explantion)
+                follow_up_json = read_explanation("Do opposite charges repel each other?", learner_explanation)
                 if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                     k_c.append("opposite charges repel each other")
                     answer = answer + "Based on your explanation, I understood that there are two types of charges and opposite charges repel each other."
@@ -300,10 +300,10 @@ def evaluate_question_2():
                     answer = answer + "Based on your explanation, I understood that there are two types of charges and opposite charges neither attract nor repel each other."
                     answer = answer + " So, the spheres don't have opposite charges on them but I can't figure out the specific nature of the charges."
                 else:
-                    follow_up_json = read_explanation("Do like charges attract each other?", learner_explantion)
+                    follow_up_json = read_explanation("Do like charges attract each other?", learner_explanation)
                     if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                         k_c.append("like charges attract each other")
-                        nswer1 = answer + "Based on your explanation, I understood that there are the two types of charges and like charges attract each other."
+                        answer = answer + "Based on your explanation, I understood that there are the two types of charges and like charges attract each other."
                         answer = answer + " So, both the metal spheres have like charges."
                     else:
                         answer = answer + "Based on your explanation, I understood that there are two types of charges and opposite charges do not attract each other."
@@ -311,12 +311,12 @@ def evaluate_question_2():
             elif required_concepts_dict[r_c[0][2]] == "Unknown":
                  answer = answer + "Based on your explanation, I understood that there are two types of charges but using just that, I don't know how to determine the nature of the charges on the sphere."
     elif required_concepts_dict[r_c[0][0]] == "No":
-        follow_up_json = read_explanation("Is there less than two types of charges?", learner_explantion)
+        follow_up_json = read_explanation("Is there less than two types of charges?", learner_explanation)
         if follow_up_json["verifications"][0]['verification_answer'] == "Yes" or follow_up_json["verifications"][0]['verification_answer'] == "Unknown":
             k_c.append("there is one type of charges")
             answer = answer + "Based on your explanation, I understood that there is only one type of charge. So both the spheres will have that charge on them."
         elif follow_up_json["verifications"][0]['verification_answer'] == "No":
-            follow_up_answer = answer_explanation("How many types of charges are there?", learner_explantion, "Your response should be a json object 'number of types of charges' containing the number of types of charges")
+            follow_up_answer = answer_explanation("How many types of charges are there?", learner_explanation, "Your response should be a json object 'number of types of charges' containing the number of types of charges")
             number_of_type_of_charges = follow_up_answer['number of types of charges']
             if not isinstance(number_of_type_of_charges, str):
                 number_of_type_of_charges = str(number_of_type_of_charges)
@@ -328,7 +328,7 @@ def evaluate_question_2():
                     answer = answer + "Based on your explanation, I understood that there are " + number_of_type_of_charges + " types of charges and positive and negative charges attract each other."
                     answer = answer + " So, one metal sphere will have a postive charge and the other will have a negative charge."
                 elif required_concepts_dict[r_c[0][2]] == "No":
-                    follow_up_json = read_explanation("Do opposite charges repel each other?", learner_explantion)
+                    follow_up_json = read_explanation("Do opposite charges repel each other?", learner_explanation)
                     if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                         k_c.append("opposite charges repel each other")
                         answer = answer + "Based on your explanation, I understood that there are " + number_of_type_of_charges + " types of charges and positive and negative charges repel each other."
@@ -338,7 +338,7 @@ def evaluate_question_2():
                         answer = answer + "Based on your explanation, I understood that there are " + number_of_type_of_charges + " types of charges and positive and negative charges neither attract nor repel each other."
                         answer = answer + " So, the spheres don't have opposite charges on them but I can't figure out the specific nature of the charges."
                     else:
-                        follow_up_json = read_explanation("Do like charges attract each other?", learner_explantion)
+                        follow_up_json = read_explanation("Do like charges attract each other?", learner_explanation)
                         if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                             k_c.append("like charges attract each other")
                             nswer1 = answer + "Based on your explanation, I understood that there are "+ number_of_type_of_charges + " two types of charges and like charges attract each other."
@@ -347,9 +347,9 @@ def evaluate_question_2():
                             answer = answer + "Based on your explanation, I understood that there are " + number_of_type_of_charges + " types of charges and positive and negative charges do not attract each other."
                             answer = answer + " So, the spheres don't have opposite charges on them but I can't figure out the specific nature of the charges."
                 elif required_concepts_dict[r_c[0][2]] == "Unknown":
-                    follow_up_json = read_explanation("Do any of the two charges attract each other?", learner_explantion)
+                    follow_up_json = read_explanation("Do any of the two charges attract each other?", learner_explanation)
                     if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
-                        follow_up_answer = answer_explanation("Which two charges attract each other?", learner_explantion, "Your response should be a json object 'charges' containing an array of the charges that attract each other.")
+                        follow_up_answer = answer_explanation("Which two charges attract each other?", learner_explanation, "Your response should be a json object 'charges' containing an array of the charges that attract each other.")
                         charge_1 = follow_up_answer['charges'][0]
                         charge_2 = follow_up_answer['charges'][1]
                         k_c.append(charge_1 + " and " + charge_2 + " charges attract each other")
@@ -365,7 +365,7 @@ def evaluate_question_2():
                     answer = answer + "Based on your explanation, I understood that there are " + number_of_type_of_charges + " types of charges and opposite charges attract each other."
                     answer = answer + " So, the two metal spheres will have opposite charges on them."
                 elif required_concepts_dict[r_c[0][2]] == "No":
-                    follow_up_json = read_explanation("Do opposite charges repel each other?", learner_explantion)
+                    follow_up_json = read_explanation("Do opposite charges repel each other?", learner_explanation)
                     if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                         k_c.append("opposite charges repel each other")
                         answer = answer + "Based on your explanation, I understood that there are " + number_of_type_of_charges + " types of charges and opposite charges repel each other."
@@ -375,7 +375,7 @@ def evaluate_question_2():
                         answer = answer + "Based on your explanation, I understood that there are " + number_of_type_of_charges + " types of charges and opposite charges neither attract nor repel each other."
                         answer = answer + " So, the spheres don't have opposite charges on them but I can't figure out the specific nature of the charges."
                     else:
-                        follow_up_json = read_explanation("Do like charges attract each other?", learner_explantion)
+                        follow_up_json = read_explanation("Do like charges attract each other?", learner_explanation)
                         if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                             k_c.append("like charges attract each other")
                             nswer1 = answer + "Based on your explanation, I understood that there are " + number_of_type_of_charges + " charges and like charges attract each other."
@@ -384,9 +384,9 @@ def evaluate_question_2():
                             answer = answer + "Based on your explanation, I understood that there are " + number_of_type_of_charges + " types of charges and opposite charges do not attract each other."
                             answer = answer + " So, the spheres don't have opposite charges on them but I can't figure out the specific nature of the charges."
                 elif required_concepts_dict[r_c[0][2]] == "Unknown":
-                    follow_up_json = read_explanation("Do any of the two charges attract each other?", learner_explantion)
+                    follow_up_json = read_explanation("Do any of the two charges attract each other?", learner_explanation)
                     if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
-                        follow_up_answer = answer_explanation("Which two charges attract each other?", learner_explantion, "Your response should be a json object 'charges' containing an array of the charges that attract each other.")
+                        follow_up_answer = answer_explanation("Which two charges attract each other?", learner_explanation, "Your response should be a json object 'charges' containing an array of the charges that attract each other.")
                         charge_1 = follow_up_answer['charges'][0]
                         charge_2 = follow_up_answer['charges'][1]
                         k_c.append(charge_1 + " and " + charge_2 + " charges attract each other")
@@ -404,7 +404,7 @@ def evaluate_question_2():
                 answer = answer + "Based on your explanation, I understood that positive and negative charges attract each other."
                 answer = answer + " So, one metal sphere will have a postive charge and the other will have a negative charge."
             elif required_concepts_dict[r_c[0][2]] == "No":
-                follow_up_json = read_explanation("Do opposite charges repel each other?", learner_explantion)
+                follow_up_json = read_explanation("Do opposite charges repel each other?", learner_explanation)
                 if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                     k_c.append("opposite charges repel each other")
                     answer = answer + "Based on your explanation, I understood that positive and negative charges repel each other."
@@ -414,7 +414,7 @@ def evaluate_question_2():
                     answer = answer + "Based on your explanation, I understood that positive and negative charges neither attract nor repel each other."
                     answer = answer + " So, the spheres don't have opposite charges on them but I can't figure out the specific nature of the charges."
                 else:
-                    follow_up_json = read_explanation("Do like charges attract each other?", learner_explantion)
+                    follow_up_json = read_explanation("Do like charges attract each other?", learner_explanation)
                     if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                         k_c.append("like charges attract each other")
                         nswer1 = answer + "Based on your explanation, I understood that like charges attract each other."
@@ -426,18 +426,18 @@ def evaluate_question_2():
                 answer = answer + "I cannot figure out the nature of the charges on the sphere."
         elif required_concepts_dict[r_c[0][1]] == "No" or required_concepts_dict[r_c[0][1]] == "Unknown":
             if required_concepts_dict[r_c[0][2]] == "Yes":
-                follow_up_json = read_explanation("Do positive and negative charges attract each other?", learner_explantion)
+                follow_up_json = read_explanation("Do positive and negative charges attract each other?", learner_explanation)
                 if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                     k_c.append("positive and negative charges attract each other")
                     answer = answer + "Based on your explanation, I understood that positive and negative charges attract each other."
                     answer = answer + " So, one metal sphere will have a positive charge and the other will have a negative charge."
-                    correct1 = True
+                    correct = True
                 else:
                     k_c.append("opposite charges attract each other")
                     answer = answer + "Based on your explanation, I understood that opposite charges attract each other."
                     answer = answer + " So, the two metal spheres will have opposite charges on them."
             elif required_concepts_dict[r_c[0][2]] == "No":
-                follow_up_json = read_explanation("Do opposite charges repel each other?", learner_explantion)
+                follow_up_json = read_explanation("Do opposite charges repel each other?", learner_explanation)
                 if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                     k_c.append("opposite charges repel each other")
                     answer = answer + "Based on your explanation, I understood that opposite charges repel each other."
@@ -447,7 +447,7 @@ def evaluate_question_2():
                     answer = answer + "Based on your explanation, I understood that opposite charges neither attract nor repel each other."
                     answer = answer + " So, the spheres don't have opposite charges on them but I can't figure out the specific nature of the charges."
                 else:
-                    follow_up_json = read_explanation("Do like charges attract each other?", learner_explantion)
+                    follow_up_json = read_explanation("Do like charges attract each other?", learner_explanation)
                     if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                         k_c.append("like charges attract each other")
                         nswer1 = answer + "Based on your explanation, I understood that like charges attract each other."
@@ -456,9 +456,9 @@ def evaluate_question_2():
                         answer = answer + "Based on your explanation, I understood that opposite charges do not attract each other."
                         answer = answer + " So, the spheres don't have opposite charges on them but I can't figure out the specific nature of the charges."
             elif required_concepts_dict[r_c[0][2]] == "Unknown":
-                follow_up_json = read_explanation("Do any of the two charges attract each other?", learner_explantion)
+                follow_up_json = read_explanation("Do any of the two charges attract each other?", learner_explanation)
                 if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
-                    follow_up_answer = answer_explanation("Which two charges attract each other?", learner_explantion, "Your response should be a json object 'charges' containing an array of the charges that attract each other.")
+                    follow_up_answer = answer_explanation("Which two charges attract each other?", learner_explanation, "Your response should be a json object 'charges' containing an array of the charges that attract each other.")
                     charge_1 = follow_up_answer['charges'][0]
                     charge_2 = follow_up_answer['charges'][1]
                     k_c.append(charge_1 + " and " + charge_2 + " charges attract each other")
@@ -498,7 +498,7 @@ def evaluate_question_3():
             answer1 = answer1 + "Since charges can't be created or destroyed but they can be transferred through air, the charges from the negative plate will flow through air and the metal sphere and cancel out the charges on the positive plate."
             imageOutput = image1
         elif required_concepts_dict[r_c[0][1]] == "Unknown":
-            follow_up_json = read_explanation("Can charges be transferred through air?", learner_explantion)
+            follow_up_json = read_explanation("Can charges be transferred through air?", learner_explanation)
             if follow_up_json["verifications"][0]['verification_answer'] == "No":
                 k_c.append("charges can't flow through air")
                 answer1 = answer1 + "Since charges can't be created or destroyed and they can't be transferred through air, the metal sphere will remain neutral."
@@ -557,7 +557,7 @@ def evaluate_question_3():
                     answer2 = answer2 + "The charges in the metal sphere will be attracted towards the oppositely charged metal plate but I don't know if they will be able to move."
                     imageOutput = image2
         elif required_concepts_dict[r_c[1][0]] == "No":
-            follow_up_json = read_explanation("Do positive and negative charges repel each other?", learner_explantion)
+            follow_up_json = read_explanation("Do postive and negative charges repel each other?", learner_explanation)
             if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                 k_c.append("positive and negative charges repel each other")
                 if required_concepts_dict[r_c[1][1]] == "Yes":
@@ -605,6 +605,7 @@ def evaluate_question_4():
     image2 = "" # There is no grounding
     image3 = "" # Original image
     image4 = "" # Correct image but with opposite charges attracting one another
+    image5 = "" # There is no grounding with opposite charges attracting one another
     correct1 = False
     correct2 = False
     for question in assignment["Questions"]:
@@ -623,7 +624,7 @@ def evaluate_question_4():
             answer1 = answer1 + "Since charges can't be created or destroyed but they can be transferred through air or plastic, the charges will get neutralized with the environment or ground."
             imageOutput = image1
         elif required_concepts_dict[r_c[0][1]] == "Unknown":
-            follow_up_json = read_explanation("Can charges be transferred through air?" + "\n" + "Can charges be transferred through plastic?", learner_explantion)
+            follow_up_json = read_explanation("Can charges be transferred through air?" + "\n" + "Can charges be transferred through plastic?", learner_explanation)
             if follow_up_json["verifications"][0]['verification_answer'] == "No" and follow_up_json["verifications"][1]['verification_answer'] == "No":
                 k_c.append("charges can't flow through air or plastic")
                 correct1 = True
@@ -699,7 +700,7 @@ def evaluate_question_4():
                     answer2 = answer2 + "The charges in the metal sphere will be attracted towards the oppositel charges but I don't know if they will be able to move."
                     imageOutput = image3
         elif required_concepts_dict[r_c[1][0]] == "No":
-            follow_up_json = read_explanation("Do positive and negative charges repel each other?", learner_explantion)
+            follow_up_json = read_explanation("Do positive and negative charges repel each other?", learner_explanation)
             if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                 if required_concepts_dict[r_c[1][1]] == "Yes":
                     k_c.append("conductors allow free flow of charges within them")  
@@ -708,7 +709,7 @@ def evaluate_question_4():
                         answer2 = answer2 + "I understood that opposite charges will repel each other."
                         imageOutput = image4
                     elif required_concepts_dict[r_c[1][2]] == "No" or required_concepts_dict[r_c[1][2]] == "Unknown":
-                        imageOutput = image2
+                        imageOutput = image5
                 elif required_concepts_dict[r_c[1][1]] == "No":
                     k_c.append("conductors prevent free flow of charges within them")
                     answer2 = answer2 + "The charges will not be able to flow within the metal spheres."
@@ -721,7 +722,7 @@ def evaluate_question_4():
                             answer2 = answer2 + "I understood that opposite charges will repel each other."
                             imageOutput = image4
                         elif required_concepts_dict[r_c[1][2]] == "No" or required_concepts_dict[r_c[1][2]] == "Unknown":
-                            imageOutput = image2
+                            imageOutput = image5
                     else:
                         answer2 = answer2 + "The charges in the metal sphere will repel from the opposite charge but I don't know if they will be able to move."
                         imageOutput = image3
@@ -740,8 +741,10 @@ def evaluate_question_4():
             if not_required_concepts_dict[n_r_c[1]] == "Yes":
                 answer2 = answer2 + " I understand that transfer of charges without contact is called induction but I don't know how it works."
     answer = answer1 + "\n" + answer2
+    print(answer1, answer2)
     correct = correct1 and correct2
     final_answer = output_answer(q, answer)
+    print(final_answer)
     return final_answer, correct
     
 # Reasoning engine for question 5
@@ -774,7 +777,7 @@ def evaluate_question_5():
                 else:
                     answer = answer + "I understand that the positive charges will repel each other but I am not sure how they will move."
         elif required_concepts_dict[r_c[0][1]] == "No":
-            follow_up_json = read_explanation("Do positive charges attract each other?", learner_explantion)
+            follow_up_json = read_explanation("Do positive charges attract each other?", learner_explanation)
             if follow_up_json["verifications"][0]['verification_answer'] == "Yes":
                 k_c.append("positive charges attract each other")
                 if required_concepts_dict[r_c[0][2]] == "Yes":
@@ -793,7 +796,7 @@ def evaluate_question_5():
             elif follow_up_json["verifications"][0]['verification_answer'] == "No":
                 k_c.append("positive charges will neither attract nor repel each other")
                 answer = answer + "The positive charges will neither attract nor repel each other. The metal ruler will remain neutral."
-             elif follow_up_json["verifications"][0]['verification_answer'] == "No":
+            elif follow_up_json["verifications"][0]['verification_answer'] == "No":
                 k_c.append("positive charges will not attract each other")
                 answer = answer + "The positive charges will not attract each other but based on that, I don't know how to figure out the charge on the metal ruler."
         elif required_concepts_dict[r_c[0][1]] == "Unknown":
@@ -803,5 +806,8 @@ def evaluate_question_5():
         answer = answer + "I understand that the charges can be created or be destroyed so, I don't know how to figure out the charges on the metal ruler."
     elif required_concepts_dict[r_c[0][0]] == "Unknown":
         answer = answer + "I am not sure if charges can be created or be destroyed so, I don't know how to figure out the charges on the metal ruler."
-        final_answer = output_answer(q, answer)
+    final_answer = output_answer(q, answer)
     return final_answer, correct
+
+evaluate_question_4()
+

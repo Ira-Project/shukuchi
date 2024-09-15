@@ -1,0 +1,16 @@
+{
+    "question_id": 1,
+    "Question": "Evaluate $\\frac{c}{5} + 10$ when $c=4$.",
+    "sympy": {
+        "symbols": ["c"],
+        "value": [4],
+        "expressions": ["c/5 + 10"]
+    },
+    "Question_image": "No",
+    "Answer": 10.8,
+    "Answer_type": "single_correct",
+    "general_concepts": ["Are variables symbols in an expression?", "Can variables be substituted with any mathematical quantity?"],
+    "specific_concepts": ["Is $c$ a variable?", "Is $c$ to be substituted with $4$?"],
+    "known_concepts": []
+}
+    

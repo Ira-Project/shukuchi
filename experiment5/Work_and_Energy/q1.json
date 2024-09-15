@@ -1,0 +1,16 @@
+{
+    "question_id": 1,
+    "Question": "A boy pulls a box across a rough, horizontal surface using a rope. The box is moving at a steady speed. The friction on the box is 300 N and the rope is at angle of 30° to the horizontal. Find the work done by the boy to move the box a distance of 100m across the horizontal surface.",
+    "Question_image": "No",
+    "Answer": "30 kJ",
+    "Answer_type": "single_correct",
+    "general_concepts": [
+        "If acceleration is zero, then is the net force zero?",
+        "Is the formula for work equal to force times displacement?",
+        "To calculate work done, only the force applied in the direction of displacement is considered?"
+    ],
+    "specific_concepts": [],
+    "known_concepts": [
+        "if speed is constant, acceleration is zero"
+    ]
+}

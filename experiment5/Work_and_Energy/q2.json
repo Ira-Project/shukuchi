@@ -1,0 +1,15 @@
+{
+    "question_id": 2,
+    "Question": "A 10 kg dumbell is initially kept on a rack of height 1 m. It is then lifted to a height of 3 m. Calculate the change in gravitational potential energy of the dumbell.",
+    "Question_image": "No",
+    "Answer": "196 J",
+    "Answer_type": "single_correct",
+    "general_concepts": [
+        "Is the formula for gravitational potential energy equal to mass * acceleration due to gravity * height?",
+        "Does a change in height of an object change its gravitational potential energy?"
+    ],
+    "specific_concepts": [],
+    "known_concepts": [
+        "g is acceleration due to gravity"
+    ]
+}

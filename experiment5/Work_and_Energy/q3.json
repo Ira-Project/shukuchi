@@ -1,0 +1,14 @@
+{
+    "question_id": 3,
+    "Question": "A 200g football is kicked along the field at an initial speed of 20 m/s. What is the work done by friction to bring the football to a stop.",
+    "Question_image": "No",
+    "Answer": "40 J",
+    "Answer_type": "single_correct",
+    "general_concepts": [
+        "Is the formula for kinetic energy equal to 1/2 * mass * (velocity**2)?",
+        "Does a change in velocity of an object change it's kinetic energy?",
+        "Does the work done by a force transfer to a change in kinetic energy, i.e, equal to change in kinetic energy?"
+    ],
+    "specific_concepts": [],
+    "known_concepts": []
+}

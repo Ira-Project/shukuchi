@@ -1,0 +1,10 @@
+{
+    "question_id": 1,
+    "Question": "Write an algebraic expression for the following phrase: $3$ less than the $7$ times $b$.",
+    "Question_image": "No",
+    "Answer": "$7b - 3$",
+    "Answer_type": "single_correct",
+    "required_concepts": [],
+    "known_concepts": [],
+    "not_required_concepts": []
+}

@@ -1,0 +1,15 @@
+{
+    "question_id": 5,
+    "Question": "The plot below shows the relationship between force and displacement for a spring. Find the value of the spring constant.",
+    "Question_image": "graph",
+    "Answer": "200 N/m",
+    "Answer_type": "single_correct",
+    "general_concepts": [
+        "Is the force in the spring proportional to the change in length of the spring?",
+        "Is the proportion of the spring force and the displacement of a spring called the spring constant?",
+        "Does the force in the spring oppose any changes in it's length?",
+        "Is the formula for spring force equal to the spring constant times the displacement?"
+    ],
+    "specific_concepts": [],
+    "known_concepts": []
+}

@@ -1,0 +1,2 @@
+# explanation_sample = "c can be substituted with 7."
+explanation_sample = "To evaluate an expression when we know the value of a variable we must simply replace the variable with the value and perform the computation."

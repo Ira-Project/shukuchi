@@ -1,0 +1,10 @@
+{
+    "question_id": 1,
+    "Question": "Evaluate $0.8 - \\frac{x}{y} + z^2$ when $x=2$, $y=4$, $z=3$.",
+    "Question_image": "No",
+    "Answer": 9.3,
+    "Answer_type": "single_correct",
+    "required_concepts": [],
+    "known_concepts": [],
+    "not_required_concepts": []
+}

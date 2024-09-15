@@ -1,0 +1,17 @@
+{
+    "question_id": 4,
+    "Question": "A spring is compressed by a length of 5 cm. If the spring constant is 100 N/m, what is the elastic potential energy stored in the compressed spring?",
+    "Question_image": "No",
+    "Answer": "40 J",
+    "Answer_type": "single_correct",
+    "general_concepts": [
+        "Is the force in the spring proportional to the change in length of the spring?",
+        "Does the force in the spring oppose any changes in it's length?",
+        "Is the formula for spring force equal to the spring constant times the displacement?",
+        "Is the formula for work equal to force times displacement?",
+        "To calculate work done, only the force applied in the direction of displacement is considered?",
+        "Is the formula for elastic potential energy equal to 1/2 * spring constant * (spring displacement**2)?"
+    ],
+    "specific_concepts": [],
+    "known_concepts": []
+}
