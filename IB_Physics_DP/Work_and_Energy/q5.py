@@ -3,6 +3,7 @@ sys.path.append("/Users/likhitnayak/Ira Project/shukuchi")
 from IB_Physics_DP.utils import *
 from IB_Physics_DP.Work_and_Energy.parameters import *
 from sympy import *
+import math
 
 # Function to combine value and unit into a string
 def combine_value_and_unit(var):
@@ -48,6 +49,15 @@ values_dict["h"] = 3
 units_dict["h"] = "m"
 values_dict["g"] = 9.8
 units_dict["g"] = "m/s^2"
-answer_value = sqrt(2 * values_dict["g"] * values_dict["h"] + values_dict["v_initial"]**2)
+answer_value = math.sqrt(2 * values_dict["g"] * values_dict["h"] + values_dict["v_initial"]**2)
 answer_unit = " m/s"
 answer_output = insert_latex('{:.2f}'.format(answer_value) + answer_unit) + ", the final speed won't be the same"
+
+question_json = {
+    "question_id": question_id,
+    "Question": question,
+    "Question_image": question_image,
+    "Answer": answer_output,
+    "Answer_type": answer_type,
+    "required_concepts": required_information,
+}

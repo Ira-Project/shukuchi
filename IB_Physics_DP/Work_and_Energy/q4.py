@@ -50,3 +50,12 @@ values_dict["v2"] = values_dict["v1"]
 answer_value = 200
 answer_unit = " J"
 answer_output = insert_latex('{:.2f}'.format(answer_value) + answer_unit)
+
+question_json = {
+    "question_id": question_id,
+    "Question": question,
+    "Question_image": question_image,
+    "Answer": answer_output,
+    "Answer_type": answer_type,
+    "required_concepts": required_information,
+}
