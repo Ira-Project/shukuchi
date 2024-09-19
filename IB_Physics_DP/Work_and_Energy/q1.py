@@ -15,7 +15,7 @@ def combine_value_and_unit(var):
 question_id = 1
 required_information = [
     unknown_concepts["How to find the net force?"][0],
-    unknown_concepts["How to calculate the work done by a force?"][1],
+    unknown_concepts["How to calculate the work done by a force?"][0],
 ]
 
 other_force = insert_latex("300 N")

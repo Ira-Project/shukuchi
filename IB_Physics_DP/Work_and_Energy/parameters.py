@@ -30,8 +30,7 @@ unknown_concepts["How to find the net force?"] = [
     "force is zero if the acceleration is zero"
     ]
 unknown_concepts["How to calculate the work done by a force?"] = [
-    "to calculate the work done by a force, we use the product of the force and the displacement of the object",
-    "to calculate the work done by a force, we use only the force component along the object's displacement",
+    "to calculate the work done by a force, we use only the force component along the object's displacement"
     ]
 unknown_concepts["What is the work done against gravity?"] = [
     "work done against gravity is equal to change in gravitational potential energy"
