@@ -1,30 +1,15 @@
 import sys
 sys.path.append("/Users/likhitnayak/Ira Project/shukuchi")
 from IB_Physics_DP.utils import *
-from IB_Physics_DP.Work_and_Energy.parameters import *
 from IB_Physics_DP.Work_and_Energy.q1 import *
+from IB_Physics_DP.Work_and_Energy.read_explanation import *
 import json
 from sympy import *
 
-# Convert concepts to an information checklist
-information_check_dict = {}
-concepts_check_dict = {}
-information_list = ""
-for concept in unknown_concepts:
-    concepts_check_dict[concept] = "Unknown"
-    for information in unknown_concepts[concept]:
-        information_list = information_list + information + "\n"
-        information_check_dict[information] = "Unknown"
-
-# Perform an automated information check
-checklist_json = check_information(information_list, explanation_sample, instructions_post="")
-for information in checklist_json['information_checklist']:
-    if information['information'] in information_check_dict:
-        information_check_dict[information['information']] = information['check']
-print(information_check_dict)
+information_check_dict = read_explanation()
 
 # Find the force
-def find_force():
+def find_force(information_check_dict):
     steps_response = ""
     force = None
     if information_check_dict[required_information[0]] == "Yes":
@@ -36,21 +21,6 @@ def find_force():
     elif information_check_dict[required_information[0]] == "No":
         steps_response = steps_response + "I don't how to determine the force exerted by the boy.\n"
     return steps_response, force
-
-
-# Find the formula for work done
-def find_work_formula():
-    steps_response = ""
-    work_done = ""
-    formula_json = formula_reader("What is the formula for work done?", formula_sample)
-    formula_read = formula_json['formula'].split("=")[1]
-    if formula_read == "Unknown":
-        steps_response = steps_response + "I am not sure how to proceed further since you have not given me the formula for work done.\n"
-    else:
-        work_done = sympify(formula_read)
-        steps_response = steps_response + insert_latex("W = " + latex(work_done)) + "\n"
-    return steps_response, work_done
-
 
 # Find the angle between force and displacement
 def find_theta(work_formula):
@@ -91,7 +61,6 @@ def evaluate():
             working = working + insert_latex("W = " + latex(work_done.subs([(F, str(force)), (s, str(values_dict["s"]))]))) + "\n"
             working = working + insert_latex("W = " + latex(work_done.subs([(F, force), (s, values_dict["s"])])) + answer_unit_into_1000) + "\n"
             answer = N(work_done.subs([(F, values_dict["F"]), (s, values_dict["s"])])) / 1000
-        print("HUHUHU", answer, answer_value)
         working = working + insert_latex("W = " + '{:.2f}'.format(answer) + answer_unit)
         if abs(answer - answer_value) < 0.00001:
             correct = True
@@ -104,4 +73,3 @@ def evaluate():
     return working, answer, correct
 
 evaluate()
-

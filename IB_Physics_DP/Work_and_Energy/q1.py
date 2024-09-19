@@ -11,29 +11,8 @@ def combine_value_and_unit(var):
     else:
         return str(values_dict[var])
 
-question_id = 1
-known_concepts = [
-    "if speed is constant, then acceleration is zero",
-
-    ]
-
-formulas = {}
-formulas[W]=F*s*cos(theta)
-formulas[F]=m*a
-formulas[F_cos_theta]=F*cos(theta)
-formulas[s_cos_theta]=s*cos(theta)
-
-unknown_concepts = {}
-unknown_concepts["How to find the net force?"] = [
-    "force is zero if the acceleration is zero"
-    ]
-
-unknown_concepts["How to calculate the work done by a force?"] = [
-    "to calculate the work done by a force, we use the product of the force and the displacement of the object",
-    "to calculate the work done by a force, we use only the force component along the object's displacement",
-    ]
-
 ## Question Parameters
+question_id = 1
 required_information = [
     unknown_concepts["How to find the net force?"][0],
     unknown_concepts["How to calculate the work done by a force?"][1],
@@ -68,8 +47,7 @@ values_dict["s"] = 100
 units_dict["s"] = "m"
 values_dict["theta"] = 30
 values_dict["a"] = 0
-values_dict["m"] = "m"
 answer_value = 30
 answer_unit = " kJ"
 answer_unit_into_1000 = " J"
-answer_output = insert_latex(str(answer_value) + answer_unit)
+answer_output = insert_latex('{:.2f}'.format(answer_value) + answer_unit)
