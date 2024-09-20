@@ -45,3 +45,14 @@ unknown_concepts["What is the conservation of total mechanical enegry?"] = [
     "work done by external forces on a system or an object transfers energy to or from the system or the object thus, changing it's total mechanical energy",
     "the total mechanical energy of an isolated system is conserved, i.e., it can neither be created nor be destroyed"
     ]
+
+information_questions = {}
+information_questions["force is zero if the acceleration is zero"] = "What is the net force when acceleration is zero?"
+information_questions["to calculate the work done by a force, we use only the force component along the object's displacement"] = "To calculate the work, is the direction of force important?"
+information_questions["work done against gravity is equal to change in gravitational potential energy"] = "What is the work done against gravity?"
+information_questions["work done to change the velocity is equal to the change in kinetic energy"] = "How is work done related to kinetic energy?"
+information_questions["the total mechanical energy of a system/object is the sum of its kinetic and potential energy"] = "What is the total mechanical energy?"
+information_questions["the total mechanical energy is conserved, i.e., it can neither be created nor be destroyed"] = "What is conservation of total mechanical energy?"
+information_questions["an isolated system/object is one that doesn't exchange any energy with it's surroundings, i.e, doesn't have any external forces acting on it"] = "What is an isolated system?"
+information_questions["work done by external forces on a system or an object transfers energy to or from the system or the object thus, changing it's total mechanical energy"] = "How do external forces affect the total mechanical energy?"
+information_questions["the total mechanical energy of an isolated system is conserved, i.e., it can neither be created nor be destroyed"] = "Does conservation of mechanical energy only apply to isolated systems?"

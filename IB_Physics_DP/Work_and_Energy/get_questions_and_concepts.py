@@ -10,19 +10,21 @@ from sympy import *
 
 def get_questions_and_concepts():
     # Create a set of all concepts in the assignment
-    assignment_concepts = set()
+    concepts_set = set()
     for question in [q1, q2, q3, q4, q5]:
         for concept in question["required_concepts"]:
-            assignment_concepts.add(concept)
+            concepts_set.add(information_questions[concept])
 
     # Create a json object with all the questions and concepts
-    questions_and_concepts_json = {}
+    questions_json = {}
     for question in [q1, q2, q3, q4, q5]:
-        questions_and_concepts_json[question["question_id"]] = {
+        questions_json[question["question_id"]] = {
             "question": question["Question"],
-            "concepts": question["required_concepts"],
             "answer": question["Answer"],
             "Question_image": question["Question_image"],
         }
+    print(concepts_set)
+    return concepts_set, questions_json
 
-    return assignment_concepts, questions_and_concepts_json
+if __name__ == "__main__":
+    get_questions_and_concepts()
