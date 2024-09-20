@@ -7,6 +7,7 @@ from IB_Physics_DP.Work_and_Energy.q3 import question_json as q3
 from IB_Physics_DP.Work_and_Energy.q4 import question_json as q4
 from IB_Physics_DP.Work_and_Energy.q5 import question_json as q5
 from sympy import *
+import json
 
 def get_questions_and_concepts():
     # Create a set of all concepts in the assignment
@@ -27,4 +28,8 @@ def get_questions_and_concepts():
     return concepts_set, questions_json
 
 if __name__ == "__main__":
-    get_questions_and_concepts()
+    concepts_set, questions_json = get_questions_and_concepts()
+    with open("questions.json", "w") as f:
+        json.dump(questions_json, f, indent=4)
+    with open("concepts.json", "w") as f:
+        json.dump(list(concepts_set), f, indent=4)
