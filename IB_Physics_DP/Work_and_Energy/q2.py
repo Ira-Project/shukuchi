@@ -1,6 +1,6 @@
 import sys
 sys.path.append("/Users/likhitnayak/Ira Project/shukuchi")
-from IB_Physics_DP.utils import *
+from IB_Physics_DP.Work_and_Energy.utils import *
 from IB_Physics_DP.Work_and_Energy.parameters import *
 from sympy import *
 

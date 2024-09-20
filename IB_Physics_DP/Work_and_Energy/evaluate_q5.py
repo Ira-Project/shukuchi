@@ -1,12 +1,12 @@
 import sys
 sys.path.append("/Users/likhitnayak/Ira Project/shukuchi")
-from IB_Physics_DP.utils import *
+from IB_Physics_DP.Work_and_Energy.utils import *
 from IB_Physics_DP.Work_and_Energy.q5 import *
 from IB_Physics_DP.Work_and_Energy.read_explanation import *
 import json
 from sympy import *
 
-information_check_dict = read_explanation()
+information_check_dict = read_explanation(required_information)
 
 # Check if the total mechanical energy is conserved
 def check_total_mechanical_energy_conserved():

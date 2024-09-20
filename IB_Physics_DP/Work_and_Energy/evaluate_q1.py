@@ -1,12 +1,12 @@
 import sys
 sys.path.append("/Users/likhitnayak/Ira Project/shukuchi")
-from IB_Physics_DP.utils import *
+from IB_Physics_DP.Work_and_Energy.utils import *
 from IB_Physics_DP.Work_and_Energy.q1 import *
 from IB_Physics_DP.Work_and_Energy.read_explanation import *
 import json
 from sympy import *
 
-information_check_dict = read_explanation()
+information_check_dict = read_explanation(required_information)
 
 # Find the force
 def find_force(information_check_dict):

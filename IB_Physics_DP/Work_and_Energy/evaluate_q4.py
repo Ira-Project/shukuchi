@@ -1,12 +1,12 @@
 import sys
 sys.path.append("/Users/likhitnayak/Ira Project/shukuchi")
-from IB_Physics_DP.utils import *
+from IB_Physics_DP.Work_and_Energy.utils import *
 from IB_Physics_DP.Work_and_Energy.q4 import *
 from IB_Physics_DP.Work_and_Energy.read_explanation import *
 import json
 from sympy import *
 
-information_check_dict = read_explanation()
+information_check_dict = read_explanation(required_information)
 
 # Find the work done by changing the velocity
 def find_work_done_ke(ke_formula):

@@ -1,6 +1,6 @@
 import sys
 sys.path.append("/Users/likhitnayak/Ira Project/shukuchi")
-from IB_Physics_DP.utils import *
+from IB_Physics_DP.Work_and_Energy.utils import *
 from IB_Physics_DP.Work_and_Energy.parameters import *
 from sympy import *
 
@@ -31,7 +31,7 @@ objective = {
     W
 }
 
-question = "A {mass} football is kicked along the field at an initial speed of {v_initial}. What is the work done by friction to bring the football to a stop?".format(mass=mass, v_initial=v_initial)
+question = "A {mass} football is kicked along the field at an initial speed of {initial_velocity}. What is the work done by friction to bring the football to a stop?".format(mass=mass, initial_velocity=initial_velocity)
 question_image = "No"
 answer_type = "single_correct"
 

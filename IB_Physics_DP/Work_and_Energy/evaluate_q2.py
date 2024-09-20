@@ -1,12 +1,12 @@
 import sys
 sys.path.append("/Users/likhitnayak/Ira Project/shukuchi")
-from IB_Physics_DP.utils import *
+from IB_Physics_DP.Work_and_Energy.utils import *
 from IB_Physics_DP.Work_and_Energy.q2 import *
 from IB_Physics_DP.Work_and_Energy.read_explanation import *
 import json
 from sympy import *
 
-information_check_dict = read_explanation()
+information_check_dict = read_explanation(required_information)
 
 # Find the work done against gravity
 def find_work_done_gpe(gpe_formula):
