@@ -19,7 +19,7 @@ def check_total_mechanical_energy_conserved():
             steps_response = steps_response + "I understand that the total mechanical energy is conserved.\n"
             energy_conserved = True
         elif information_check_dict[required_information[1]] == "Wrong":
-            if information_check_dict[required_information[4]] == "Yes":
+            if information_check_dict[required_information[3]] == "Yes":
                 if information_check_dict[required_information[2]] == "Yes":
                     steps_response = steps_response + "I also understand that an isolated system is one that doesn't exchange any energy with it's surroundings and total mehcanical energy is conserved only for an isolated system\n"
                     energy_conserved_isolated = True
@@ -32,7 +32,7 @@ def check_total_mechanical_energy_conserved():
         if information_check_dict[required_information[1]] == "Yes":
             steps_response = steps_response + "I understand that the total mechanical energy is conserved but I am not sure how to calculate the total mechanical energy.\n"
         elif information_check_dict[required_information[1]] == "Wrong":
-            if information_check_dict[required_information[4]] == "Yes":
+            if information_check_dict[required_information[3]] == "Yes":
                 if information_check_dict[required_information[2]] == "Yes":
                     steps_response = steps_response + "I understand that total mechanical energy is only conserved for an isolated system but I am not sure how to calculate the total mechanical energy.\n"
                 else:
@@ -74,7 +74,7 @@ def evaluate():
             answer = '{:.2f}'.format(answer) + answer_unit + ", the final speed will be the same"
         except Exception as e:
             if not ke:
-                wokring = working + "I am not sure how to determine the kinetic energy of the box.\n"
+                working = working + "I am not sure how to determine the kinetic energy of the box.\n"
             if not gpe:
                 working = working + "I am not sure how to determine the gravitational potential energy of the box.\n"
             if ke and gpe:
@@ -101,7 +101,7 @@ def evaluate():
             answer = '{:.2f}'.format(answer) + answer_unit + ", the final speed won't be the same"
         except Exception as e:
             if not ke:
-                wokring = working + "I am not sure how to determine the kinetic energy of the box.\n"
+                working = working + "I am not sure how to determine the kinetic energy of the box.\n"
             if not gpe:
                 working = working + "I am not sure how to determine the gravitational potential energy of the box.\n"
             if ke and gpe:
@@ -109,6 +109,8 @@ def evaluate():
             print(e)
             print(working, answer, correct)
             return working, answer, correct
+    if working == "":
+        working = "I am not sure how to proceed further."
     print(working, answer, correct)
     return working, answer, correct
 evaluate()

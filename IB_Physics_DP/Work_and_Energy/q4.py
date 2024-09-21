@@ -35,7 +35,7 @@ objective = {
     W
 }
 
-question = "The work done in dragging a box for distance {distance} across a rough horizontal surface is {work_done}. Assuming that the speed of the box is constant, what is the work done in dragged the box for a distance of {new_distance}?".format(distance=distance, work_done=work_done, new_distance=new_distance)
+question = "The work done in dragging a box for distance {distance} across a rough horizontal surface is {work_done}. Assuming that the speed of the box is constant, what is the work done in dragging the box for a distance of {new_distance}?".format(distance=distance, work_done=work_done, new_distance=new_distance)
 question_image = "No"
 answer_type = "single_correct"
 

@@ -28,7 +28,7 @@ def find_theta(work_formula):
     angle = values_dict["theta"]
     if information_check_dict[required_information[1]] == "Yes":
         steps_response = steps_response + "I understand that we only consider the components of the force that are in the direction of displacement caused by the force.\n"
-        steps_response = steps_response + "This component is given by " + insert_latex("F*cos(\\theta)") + "\n"
+        steps_response = steps_response + "This component is given by " + insert_latex("F cos(\\theta)") + "\n"
         correct_work_formula = F*s*cos(theta)
         angle = 0
         if simplify(correct_work_formula / work_formula) != 1:
@@ -68,7 +68,8 @@ def evaluate():
     except Exception as e:
         working = working + "I am not sure how to determine the work done."
         print(e)
-        
+    if working == "":
+        working = "I am not sure how to proceed further."
     print(working, answer, correct)
     return working, answer, correct
 

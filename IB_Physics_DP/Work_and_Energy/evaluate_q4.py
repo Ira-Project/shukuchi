@@ -116,7 +116,7 @@ def evaluate():
             if information_check_dict[required_information[4]] == "Yes":
                 try:
                     working = working + "I understand that work done on an object by external forces transfers energy to or from the object. So the work done by the force dragging the box is transferring energy to the box and the work done by friction is transferring energy away from the box. Hence, the box is not an isolated system and the conservation of mechanical energy won't apply.\n"
-                    wokring = working + "To calculate this work done: \n"
+                    working = working + "To calculate this work done: \n"
                     working = working + insert_latex("W = " + latex(work_done_1.subs([(s, values_dict["s_old"])]))) + "\n"
                     working = working + insert_latex("100 J = " + latex(work_done_1.subs([(s, values_dict["s_old"])]))) + "\n"
                     work_done_old = work_done_1.subs([(s, values_dict["s_old"])])
@@ -142,15 +142,30 @@ def evaluate():
                     correct = True
                 answer = '{:.2f}'.format(answer) + answer_unit
         else:
-            try:
-                answer = simplify(work_done_2.subs([(m, "m"), (v_final, values_dict["v2"]), (v_initial, values_dict["v1"])]))
-                working = working + insert_latex("W = " + '{:.2f}'.format(answer) + answer_unit)
-                if abs(answer - answer_value) < 0.00001:
-                    correct = True
-                answer = '{:.2f}'.format(answer) + answer_unit
-            except Exception as e:
-                working = working + "I am not sure how to determine the work done."
-                print(e)
+            if information_check_dict[required_information[4]] == "Yes":
+                try:
+                    working = working + "I understand that work done on an object by external forces transfers energy to or from the object. So the work done by the force dragging the box is transferring energy to the box.\n"
+                    working = working + "To calculate this work done: \n"
+                    answer = simplify(work_done_2.subs([(m, "m"), (v_final, values_dict["v2"]), (v_initial, values_dict["v1"])]))
+                    working = working + insert_latex("W = " + '{:.2f}'.format(answer) + answer_unit)
+                    if abs(answer - answer_value) < 0.00001:
+                        correct = True
+                    answer = '{:.2f}'.format(answer) + answer_unit
+                except Exception as e:
+                    working = working + "I am not sure how to determine the work done."
+                    print(e)
+            else:
+                try:
+                    answer = simplify(work_done_2.subs([(m, "m"), (v_final, values_dict["v2"]), (v_initial, values_dict["v1"])]))
+                    working = working + insert_latex("W = " + '{:.2f}'.format(answer) + answer_unit)
+                    if abs(answer - answer_value) < 0.00001:
+                        correct = True
+                    answer = '{:.2f}'.format(answer) + answer_unit
+                except Exception as e:
+                    working = working + "I am not sure how to determine the work done."
+                    print(e)
+    if working == "":
+        working = "I am not sure how to proceed further."
     print(working, answer, correct)
     return working, answer, correct
 

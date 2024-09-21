@@ -467,6 +467,7 @@ def evaluate_question_2():
                 else:
                     answer = answer + "Based on your explanation, I don't know how to determine the nature of the charges on the sphere."
     final_answer = output_answer(q, answer) 
+    print(answer, correct)
     return final_answer, correct 
 
 
@@ -809,5 +810,5 @@ def evaluate_question_5():
     final_answer = output_answer(q, answer)
     return final_answer, correct
 
-evaluate_question_4()
+evaluate_question_2()
 

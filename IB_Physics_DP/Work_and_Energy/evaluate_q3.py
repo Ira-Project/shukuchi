@@ -50,6 +50,8 @@ def evaluate():
     except Exception as e:
         working = working + "I am not sure how to determine the work done.\n"
         print(e)
+    if working == "":
+        working = "I am not sure how to proceed further."
     print(working, answer, correct)
     return working, answer, correct
 
