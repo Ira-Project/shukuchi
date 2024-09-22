@@ -22,7 +22,7 @@ def check_information(information_checklist, explanation, instructions_post=""):
             {"role": "user", "content": information_checklist_prompt_pre + explanation},
         ],
         response_format={"type": "json_object"},
-        temperature=0.5
+        temperature=0.3
     )
     response_message = json.loads(response.choices[0].message.content)
     return response_message

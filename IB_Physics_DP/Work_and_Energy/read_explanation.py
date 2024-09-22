@@ -1,7 +1,6 @@
 import sys
 sys.path.append("/Users/likhitnayak/Ira Project/shukuchi")
 from IB_Physics_DP.Work_and_Energy.utils import *
-from IB_Physics_DP.parameters import *
 from IB_Physics_DP.Work_and_Energy.parameters import *
 import json
 from sympy import *
@@ -9,14 +8,13 @@ from sympy import *
 # Convert concepts to an information checklist
 def read_explanation(required_information):
     information_check_dict = {}
-    concepts_check_dict = {}
     information_list = ""
     for information in required_information:
-        information_list = information_list + information + "\n"
+        information_list = information_list + "Question: " + information_questions[information] + "\nInformation: " + information + "\n"
         information_check_dict[information] = "Unknown"
 
     # Perform an automated information check
-    checklist_json = check_information(information_list, explanation_sample, instructions_post="")
+    checklist_json = check_information(information_list, explanation_sample, instructions_post=information_checklist_prompt_post)
     for information in checklist_json['information_checklist']:
         if information['information'] in information_check_dict:
             information_check_dict[information['information']] = information['check']

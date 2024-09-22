@@ -13,7 +13,7 @@ explanation_sample = "the total mechanical energy is the sum of the kinetic and 
 formula_sample = "[W = F * s * cos(theta), E_k = 1/2 * m * v**2, E_p = m * g * h]"
 
 known_concepts = [
-    "if speed is constant, then acceleration is zero",
+    "if speed is constant, then acceleration is zero or if speed is constant",
     "g is acceleration due to gravity"
     ]
 
@@ -25,41 +25,63 @@ formulas[s_cos_theta]=s*cos(theta)
 formulas[E_p]=m*g*h
 formulas[E_k]=(1/2)*m*v**2
 
+# Question: What is the net force when acceleration is zero?
+# Information: the net force is zero if the acceleration is zero
+# Question: To calculate work, is the direction of force considered?
+# Information: to calculate the work done, only the component of force that is in the direction of the object's displacement is considered
+# Question: What is the work done when moving an object under gravitational force?
+# Information: the work done is equal to the change in gravitational potential energy
+# Question: What is the work done in moving an object?
+# Information: the work done is equal to the change in kinetic energy
+# Question: What is the total mechanical energy?
+# Information: the total mechanical energy of a system/object is the sum of its kinetic and potential energy
+# Question: Is the total mechanical energy conserved?
+# Information: the total mechanical energy is conserved, i.e., it can neither be created nor be destroyed
+# Question: When is total mechanical energy conserved?
+# Information: the total mechanical energy is conserved only when the object or the system is isolated
+# Question: What does it mean for an object or a system to be isolated?
+# Information: a system/object is isolated when it doesn't exchange any energy with it's surroundings, i.e, it doesn't have any external forces acting on it
+# Question: What is the net work done?
+# Information: the net work or total work done on the system/object is equal to a change in it's energy
+
+
 unknown_concepts = {}
 unknown_concepts["How to find the net force?"] = [
-    "force is zero if the acceleration is zero"
+    "the net force is zero if the acceleration is zero"
     ]
 unknown_concepts["How to calculate the work done by a force?"] = [
-    "to calculate the work done by a force, we use only the force component along the object's displacement"
+    "to calculate the work done, only the component of force that is in the direction of the object's displacement is considered"
     ]
 unknown_concepts["What is the work done against gravity?"] = [
-    "work done against gravity is equal to change in gravitational potential energy"
+    "the work done is equal to the change in gravitational potential energy"
     ]
 unknown_concepts["What is the work done to change the velocity?"] = [
-    "work done to change the velocity is equal to the change in kinetic energy"
+    "the work done is equal to the change in kinetic energy"
     ]
 unknown_concepts["What is the conservation of total mechanical energy?"] = [
     "the total mechanical energy of a system/object is the sum of its kinetic and potential energy",
     "the total mechanical energy is conserved, i.e., it can neither be created nor be destroyed",
-    "an isolated system/object is one that doesn't exchange any energy with it's surroundings, i.e, doesn't have any external forces acting on it",
-    "the net work or total work done on the system/object is a change in it's energy",
-    "the total mechanical energy of an isolated system is conserved, i.e., it can neither be created nor be destroyed"
+    "a system/object is isolated when it doesn't exchange any energy with it's surroundings, i.e, it doesn't have any external forces acting on it",
+    "the net work or total work done on the system/object is equal to a change in it's total energy",
+    "the total mechanical energy is conserved only when the object or the system is isolated"
     ]
 
 information_questions = {}
-information_questions["force is zero if the acceleration is zero"] = "What is the net force when acceleration is zero?"
-information_questions["to calculate the work done by a force, we use only the force component along the object's displacement"] = "To calculate the work, is the direction of force important?"
-information_questions["work done against gravity is equal to change in gravitational potential energy"] = "What is the work done against gravity?"
-information_questions["work done to change the velocity is equal to the change in kinetic energy"] = "How is work done related to kinetic energy?"
+information_questions["the net force is zero if the acceleration is zero"] = "What is the net force when acceleration is zero?"
+information_questions["to calculate the work done, only the component of force that is in the direction of the object's displacement is considered"] = "To calculate work, is the direction of force considered?"
+information_questions["the work done is equal to the change in gravitational potential energy"] = "What is the work done when moving an object under gravitational force?"
+information_questions["the work done is equal to the change in kinetic energy"] = "What is the work done in moving or stopping an object?"
 information_questions["the total mechanical energy of a system/object is the sum of its kinetic and potential energy"] = "What is the total mechanical energy?"
-information_questions["the total mechanical energy is conserved, i.e., it can neither be created nor be destroyed"] = "What is conservation of total mechanical energy?"
-information_questions["an isolated system/object is one that doesn't exchange any energy with it's surroundings, i.e, doesn't have any external forces acting on it"] = "What is an isolated system?"
-information_questions["work done by external forces on a system or an object transfers energy to or from the system or the object thus, changing it's total mechanical energy"] = "How do external forces affect the total mechanical energy?"
-information_questions["the total mechanical energy of an isolated system is conserved, i.e., it can neither be created nor be destroyed"] = "Does conservation of mechanical energy only apply to isolated systems?"
+information_questions["the total mechanical energy is conserved, i.e., it can neither be created nor be destroyed"] = "Is the total mechanical energy conserved?"
+information_questions["the total mechanical energy is conserved only when the object or the system is isolated"] = "When is total mechanical energy conserved?"
+information_questions["a system/object is isolated when it doesn't exchange any energy with it's surroundings, i.e, it doesn't have any external forces acting on it"] = "What does it mean for an object or a system to be isolated?"
+information_questions["the net work or total work done on the system/object is equal to a change in it's total energy"] = "What is the net work done?"
+
 
 information_checklist_model = "gpt-4o"
-information_checklist_instructions = "You are an automated checklist. I need you to carefully read a paragraph to check if it contains some information. Your response should be a valid jsonlist called 'information_checklist' where each json object has 'information' and 'check' attributes. The 'check' can only be 'Yes', 'No', or 'Wrong'. If the paragraph contains the information, then the 'check' should be 'Yes' and if it doesn't contain the information or the informaion is unknown, the check should be 'No'. If the paragraph contradicts the information, then the 'check' should be 'Wrong'. The list of 'information' is given as follows:\n"
-information_checklist_prompt_pre = "Read the given paragraph to check if it contains the information. Your 'check' should be based ONLY on the paragraph given below and can only be 'Yes', 'No', or 'Wrong'. Do NOT return 'Unknown'. \nParagraph: "
+information_checklist_instructions = "You are an automated checklist. I need you to carefully read my message to check if it contains some information. Your response should be a valid jsonlist called 'information_checklist' where each json object has 'information' and 'check' attributes. The 'check' attribute can only be 'Yes', 'No', or 'Wrong'. Each piece of 'information' lists the correct answer to some question. The list of 'information' is given as follows along with the questions it answers:\n"
+information_checklist_prompt_post = "\nYou should check for the information in the context of the question. If my message answers the question, then the 'check' should be 'Yes'. If my message doesn't answer the question, then the check should be 'No'. And in the case where my message answers the question incorrectly, then the 'check' should be 'Wrong'."
+information_checklist_prompt_pre = "Read the message to check if it contains the information to answer all the questions. Your 'check' should be based ONLY on the message given below and can only be 'Yes', 'No', or 'Wrong'.\nMessage:\n"
 
 formula_reader_model = "gpt-4o"
 formula_reader_instructions = "You are a latex formula reader. I need you to read over an array in latex and give me a formula. Your response should be a json object called 'formula'. In your response, use the following symbols:\1) force should be denoted by 'F'\n2) distance/displacement should be denoted by 's'\n3) angle should be denoted by 'theta'\n4) mass should be denoted by 'm'\n5) acceleration should be denoted by 'a'\n6) velocity should be denoted by 'v'\7) height should be denoted by 'h'\n8) acceleration due to gravity should be denoted by 'g'\n9) gravitational potential energy should be denoted by 'E_p'\n10) kinetic energy should be denoted by 'E_k'\n11) spring potential energy should be denoted by 'E_s'\n12) cosine, sine, tangent, cotangent, cosecant, and secant should be denoted by cos, sin, tan, cot, cosec, and sec respectively\nDO NOT use any other symbols in your response. Follow python syntax while writing the formula.\nIn the case that the formula I asked for is not in the array, then respond with 'Unknown'."

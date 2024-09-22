@@ -15,10 +15,10 @@ def combine_value_and_unit(var):
 # Question Parameters
 question_id = 5
 required_information = [
-    unknown_concepts["What is the conservation of total mechanical enegry?"][0],
-    unknown_concepts["What is the conservation of total mechanical enegry?"][1],
-    unknown_concepts["What is the conservation of total mechanical enegry?"][2],
-    unknown_concepts["What is the conservation of total mechanical enegry?"][4],
+    unknown_concepts["What is the conservation of total mechanical energy?"][0],
+    unknown_concepts["What is the conservation of total mechanical energy?"][1],
+    unknown_concepts["What is the conservation of total mechanical energy?"][2],
+    unknown_concepts["What is the conservation of total mechanical energy?"][4],
 ]
 
 mass = insert_latex("2 kg")
