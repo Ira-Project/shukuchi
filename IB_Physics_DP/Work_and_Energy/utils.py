@@ -2,7 +2,7 @@ import sys
 sys.path.append("/Users/likhitnayak/Ira Project/shukuchi")
 from env import OPENAI_KEY
 from openai import OpenAI
-from IB_Physics_DP.parameters import *
+from IB_Physics_DP.Work_and_Energy.parameters import *
 import json
 
 client = OpenAI(
@@ -31,8 +31,8 @@ def formula_reader(formula_question, formula_array):
     response = client.chat.completions.create(
         model=formula_reader_model,
         messages=[
-            {"role": "system", "content": formula_reader_instructions + formula_question},
-            {"role": "user", "content": formula_reader_prompt_pre + formula_array},
+            {"role": "system", "content": formula_reader_instructions},
+            {"role": "user", "content": formula_reader_prompt_pre + formula_question + "\n" + formula_reader_prompt_post + formula_array},
         ],
         response_format={"type": "json_object"}
     )

@@ -38,11 +38,11 @@ unknown_concepts["What is the work done against gravity?"] = [
 unknown_concepts["What is the work done to change the velocity?"] = [
     "work done to change the velocity is equal to the change in kinetic energy"
     ]
-unknown_concepts["What is the conservation of total mechanical enegry?"] = [
+unknown_concepts["What is the conservation of total mechanical energy?"] = [
     "the total mechanical energy of a system/object is the sum of its kinetic and potential energy",
     "the total mechanical energy is conserved, i.e., it can neither be created nor be destroyed",
     "an isolated system/object is one that doesn't exchange any energy with it's surroundings, i.e, doesn't have any external forces acting on it",
-    "work done by external forces on a system or an object transfers energy to or from the system or the object thus, changing it's total mechanical energy",
+    "the net work or total work done on the system/object is a change in it's energy",
     "the total mechanical energy of an isolated system is conserved, i.e., it can neither be created nor be destroyed"
     ]
 
@@ -62,8 +62,9 @@ information_checklist_instructions = "You are an automated checklist. I need you
 information_checklist_prompt_pre = "Read the given paragraph to check if it contains the information. Your 'check' should be based ONLY on the paragraph given below and can only be 'Yes', 'No', or 'Wrong'. Do NOT return 'Unknown'. \nParagraph: "
 
 formula_reader_model = "gpt-4o"
-formula_reader_instructions = "You are a latex formula reader. I need you to read over an array in latex and give me a formula that answers the given question. Your response should be a json object called 'formula'. While writing the formula, force should be denoted by 'F', distance/displacement should be denoted by 's', angle should be denoted by 'theta', mass should be denoted by 'm', acceleration should be denoted by 'a', velocity should be denoted by 'v', height should be denoted by 'h', acceleration due to gravity should be denoted by 'g', gravitational potential energy should be denoted by 'E_p', kinetic energy should be denoted by 'E_k', and spring potential energy should be denoted by 'E_s'. You can NOT use any other symbols in the formula. Follow python syntax while writing the formula. If the formula isn't mentioned, respond with 'Unknown' in the 'formula' attribute. The given question is:\n"
-formula_reader_prompt_pre = "Read this array and give me a formual that answers the question. Your answer should be based ONLY on the array given below, even if it contradicts common knowledge. \nArray: "
+formula_reader_instructions = "You are a latex formula reader. I need you to read over an array in latex and give me a formula. Your response should be a json object called 'formula'. In your response, use the following symbols:\1) force should be denoted by 'F'\n2) distance/displacement should be denoted by 's'\n3) angle should be denoted by 'theta'\n4) mass should be denoted by 'm'\n5) acceleration should be denoted by 'a'\n6) velocity should be denoted by 'v'\7) height should be denoted by 'h'\n8) acceleration due to gravity should be denoted by 'g'\n9) gravitational potential energy should be denoted by 'E_p'\n10) kinetic energy should be denoted by 'E_k'\n11) spring potential energy should be denoted by 'E_s'\n12) cosine, sine, tangent, cotangent, cosecant, and secant should be denoted by cos, sin, tan, cot, cosec, and sec respectively\nDO NOT use any other symbols in your response. Follow python syntax while writing the formula.\nIn the case that the formula I asked for is not in the array, then respond with 'Unknown'."
+formula_reader_prompt_pre = "Read this array and give me a formula for:\n"
+formula_reader_prompt_post = "The formula should be based ONLY on the array given below, even if it contradicts common knowledge.\nArray:\n"
 
 print_working_json_model = "gpt-4o"
 print_working_json_instructions = "You are a paraphraser. I need you to read a question and it's working and paraphrase it. Your response should be a json object which has the 'working' attribute. The 'working' will be a paraphrased version of the given working."
